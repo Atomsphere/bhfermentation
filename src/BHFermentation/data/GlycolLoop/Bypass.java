@@ -9,6 +9,6 @@ package BHFermentation.data.GlycolLoop;
  *
  * @author Mark
  */
-public class Bypass {
+public class Bypass extends Valve{
     
 }

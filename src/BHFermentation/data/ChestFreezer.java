@@ -11,4 +11,7 @@ package BHFermentation.data;
  */
 public class ChestFreezer extends Component{
     
+    private Sensor chestFreezer;
+    
+    
 }

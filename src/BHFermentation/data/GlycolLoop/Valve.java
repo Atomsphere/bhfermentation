@@ -10,5 +10,11 @@ package BHFermentation.data.GlycolLoop;
  * @author Mark
  */
 public class Valve {
+    private int state;
+    
+    public void setState(int state){
+        this.state = state;
+    }
+    
     
 }

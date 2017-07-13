@@ -12,5 +12,13 @@ import BHFermentation.data.Component;
  * @author Mark
  */
 public class Heater extends Component {
+    private int dim;
     
+    public void setDim(int dim){
+        this.dim = dim;
+    }
+    
+    public int getDim(){
+        return this.dim;
+    }
 }

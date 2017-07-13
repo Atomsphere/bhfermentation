@@ -10,5 +10,5 @@ package BHFermentation.data;
  * @author Mark
  */
 public class AmbientUI {
-    
+    Sensor ambient;
 }
