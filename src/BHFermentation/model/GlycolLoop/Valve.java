@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.data.GlycolLoop;
-
-import BHFermentation.data.Component;
+package BHFermentation.model.GlycolLoop;
 
 /**
  *
  * @author Mark
  */
-public class Pump extends Component{
+public class Valve {
+    private int state;
+    
+    public void setState(int state){
+        this.state = state;
+    }
+    
     
 }

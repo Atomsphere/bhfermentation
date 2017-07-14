@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.data.Chamber;
+package BHFermentation.model.Chamber;
 
-import BHFermentation.data.Component;
+import BHFermentation.model.Component;
 
 /**
  *

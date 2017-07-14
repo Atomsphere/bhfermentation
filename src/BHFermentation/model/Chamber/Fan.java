@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.data;
+package BHFermentation.model.Chamber;
+
+import BHFermentation.model.Component;
 
 /**
  *
  * @author Mark
  */
-public class AmbientUI {
-    Sensor ambient;
+public class Fan extends Component{
+    
 }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.data;
+package BHFermentation.model.GlycolLoop;
 
 /**
  *
  * @author Mark
  */
-public class Clock extends Component{
+public class Bypass extends Valve{
     
 }

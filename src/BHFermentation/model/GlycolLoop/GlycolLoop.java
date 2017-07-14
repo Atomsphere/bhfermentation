@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.data.GlycolLoop;
-import BHFermentation.data.Sensor;
+package BHFermentation.model.GlycolLoop;
+import BHFermentation.model.Sensor;
 
 import java.util.List;
 
@@ -18,6 +18,9 @@ public class GlycolLoop {
     private Pump pump;
     private Chiller chiller;
     private Sensor glycolTemp;
+    
+    
+    
     /**
      * convert to observer
      * @return 
