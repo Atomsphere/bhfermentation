@@ -27,23 +27,23 @@ public class GlycolLoop {
      * convert to observer
      * @return 
      */
-    public int getGlycolTemp(){
-        return glycolTemp.getTemp();
-    }
+    //public int getGlycolTemp(){
+      //  return glycolTemp.getTemp();
+    //}
     /**
      * 
      * @return 
      */
-    public boolean getPumpStatus(){
-        return pump.getState();
-    }
+    //public boolean getPumpStatus(){
+     //   return pump.getState();
+    //}
     /**
      * Methods should be convereted to observers
      * this will be pull from an iterator
      * @return 
      */
-    public int getValveStatus(){
-        for()
-        return 
-    }
+    //public int getValveStatus(){
+     //   for()
+       // return 
+    //}
 }
