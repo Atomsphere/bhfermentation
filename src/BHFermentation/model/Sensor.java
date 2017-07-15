@@ -14,29 +14,23 @@ import com.pi4j.io.gpio.RaspiPin;
  * @author Mark
  */
 public class Sensor {
-    private int temp; // 2 byte
-    private int ID; // 2 byte
+    
+    int ID;
     private String alias;
     private final GpioPinDigitalInput sda = gpio.provisionDigitalInputPin(RaspiPin.GPIO_03, PinPullResistance.PULL_DOWN);
     private final GpioPinDigitalInput scl = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05, PinPullResistance.PULL_DOWN);
     
     /**
-     * constructor, needs ID of sensor to instantiate
-     * catch is unfinished
+     * constructor
      */
     public Sensor(){
-        this.temp = 0;
-        this.ID = 0;
-        this.alias = null;
+        
     }
     
     /**
      * simple getter for temp
      * @return integer value is a byte
      */
-    public int getTemp(){
-        return this.temp;
-    }
     
     /**
      * 

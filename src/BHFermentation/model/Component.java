@@ -20,6 +20,10 @@ public abstract class Component {
     
     GpioPinDigitalInput componentPin;
     
+    Component(){
+        
+    }
+    
     public void ComponentListen(){
         componentPin.addListener((GpioPinListenerDigital) (GpioPinDigitalStateChangeEvent event) -> {
             ProcessController.notify(event.getPin(), event.getState());

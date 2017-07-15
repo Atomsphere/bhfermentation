@@ -3,14 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.model.GlycolLoop;
-
-import BHFermentation.model.Component;
+package BHFermentation.model;
 
 /**
  *
  * @author Mark
  */
-public class Chiller extends Component {
+public class Valve {
+    private int state;
+    
+    Valve(){
+        
+    }
+    
+    public void setState(int state){
+        this.state = state;
+    }
+    
     
 }

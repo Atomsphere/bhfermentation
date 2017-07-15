@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.model.Chamber;
-import BHFermentation.model.Sensor;
+package BHFermentation.model;
 
 /**
  *
@@ -12,7 +11,7 @@ import BHFermentation.model.Sensor;
  */
 public class Vessel {
     
-    private Sensor vessel;
+    private Sensor sensor;
     private boolean state; //active or ready
     
     public Vessel(){

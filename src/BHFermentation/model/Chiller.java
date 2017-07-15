@@ -4,24 +4,18 @@
  * and open the template in the editor.
  */
 package BHFermentation.model;
-
 import static BHFermentation.model.ProcessController.gpio;
 import com.pi4j.io.gpio.PinPullResistance;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_26;
+import static com.pi4j.io.gpio.RaspiPin.GPIO_24;
 
 /**
  *
  * @author Mark
  */
-public class ChestFreezer extends Component{
-    Sensor sensor1, sensor2;
-    
-    ChestFreezer(){
-    componentPin = gpio.provisionDigitalInputPin(GPIO_26, PinPullResistance.PULL_DOWN);
+public class Chiller extends Component {
+    Sensor sensor;
+    Chiller(){//GPIO number to be determined later
+       componentPin = gpio.provisionDigitalInputPin(GPIO_24, PinPullResistance.PULL_DOWN);
     super.ComponentListen();
     }
-    
-    private Sensor chestFreezer;
-    
-    
 }

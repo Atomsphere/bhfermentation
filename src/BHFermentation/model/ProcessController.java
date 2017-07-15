@@ -25,9 +25,6 @@ import java.util.List;
  */
 public class ProcessController extends Application{
 
-    
-
-    
     private List<Double> Temperatures;
     private List<Boolean> ComponentStatus;
     private List<Boolean> ValveStatus;
@@ -67,7 +64,7 @@ public class ProcessController extends Application{
     }
     
     
-    boolean getComponentStatus(Component component){
+    /*boolean getComponentStatus(Component component){
         
     }
     
@@ -83,7 +80,7 @@ public class ProcessController extends Application{
     int selectVessel(){
         
     }
-    
+    */
     /**
      * to be filled out later
      */
@@ -93,19 +90,19 @@ public class ProcessController extends Application{
         
         
         
-        boolean cooling(int setpoint, int interval, String keyword){
+        public void cooling(int setpoint, int interval, String keyword){
             
         }
         
-        boolean heating(int setpoint, int interval, String keyword){
+        public void heating(int setpoint, int interval, String keyword){
             
         }
         
-        public boolean heatingTune(){
+        public void heatingTune(){
             
         }
         
-        public boolean coolingTune(){
+        public void coolingTune(){
             
         }
 }

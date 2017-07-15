@@ -11,4 +11,7 @@ package BHFermentation.view;
  */
 public class SDCard {
     
+    SDCard(){
+        
+    }
 }

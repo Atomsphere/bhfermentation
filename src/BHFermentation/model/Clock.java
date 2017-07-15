@@ -14,7 +14,7 @@ import static com.pi4j.io.gpio.RaspiPin.GPIO_24;
  * @author Mark
  */
 public class Clock extends Component{
-    Clock(){
+    Clock(){ //GPIO number to be determined later
        componentPin = gpio.provisionDigitalInputPin(GPIO_24, PinPullResistance.PULL_DOWN);
     super.ComponentListen();
    } 

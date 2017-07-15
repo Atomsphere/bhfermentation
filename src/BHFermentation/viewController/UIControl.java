@@ -11,4 +11,7 @@ package BHFermentation.viewController;
  */
 public class UIControl {
     
+    UIControl(){
+        
+    }
 }

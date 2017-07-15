@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.model.GlycolLoop;
+package BHFermentation.model;
 
+import java.util.List;
 /**
  *
  * @author Mark
  */
-public class Valve {
-    private int state;
+public class Chamber {
+    private Sensor sensor;
+    private List<Vessel> vessels;
     
-    public void setState(int state){
-        this.state = state;
+    Chamber(){
+        
     }
     
+    public List<Vessel> getVessels(){
+        return vessels;
+    }
     
 }
