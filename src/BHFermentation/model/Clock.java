@@ -5,17 +5,21 @@
  */
 package BHFermentation.model;
 
-import static BHFermentation.model.ProcessController.gpio;
-import com.pi4j.io.gpio.PinPullResistance;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_24;
+import com.pi4j.io.i2c.*;
+import static BHFermentation.model.Bus.bus;
+import java.io.IOException;
+
 
 /**
  *
  * @author Mark
  */
-public class Clock extends Component{
-    Clock(){ //GPIO number to be determined later
-       componentPin = gpio.provisionDigitalInputPin(GPIO_24, PinPullResistance.PULL_DOWN);
-    super.ComponentListen();
+public class Clock{
+    I2CDevice clock;
+    Clock(){ //generated address
+       clock = null;
    } 
+    public void setClock(int address) throws IOException{
+        clock = bus.getDevice(address);
+    }
 }

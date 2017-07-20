@@ -5,6 +5,7 @@
  */
 package BHFermentation.model;
 
+import BHFermentation.view.Alert;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPin;
@@ -25,7 +26,7 @@ import java.util.List;
  */
 public class ProcessController extends Application{
 
-    private List<Double> Temperatures;
+    public List<Double> Temperatures; 
     private List<Boolean> ComponentStatus;
     private List<Boolean> ValveStatus;
     final static GpioController gpio = GpioFactory.getInstance();
@@ -54,6 +55,9 @@ public class ProcessController extends Application{
      * @param state 
      */
     static void notify(GpioPin pin, PinState state) {
+        
+        
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     /**
