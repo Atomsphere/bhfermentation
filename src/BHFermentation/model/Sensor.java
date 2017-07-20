@@ -3,10 +3,9 @@
  */
 package BHFermentation.model;
 
-import static BHFermentation.model.ProcessController.gpio;
-import com.pi4j.io.gpio.GpioPinDigitalInput;
-import com.pi4j.io.gpio.PinPullResistance;
-import com.pi4j.io.gpio.RaspiPin;
+import static BHFermentation.model.Bus.bus;
+import com.pi4j.io.i2c.I2CDevice;
+import java.io.IOException;
 
 
 /**
@@ -17,8 +16,7 @@ public class Sensor {
     
     int ID;
     private String alias;
-    private final GpioPinDigitalInput sda = gpio.provisionDigitalInputPin(RaspiPin.GPIO_03, PinPullResistance.PULL_DOWN);
-    private final GpioPinDigitalInput scl = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05, PinPullResistance.PULL_DOWN);
+    private I2CDevice sensor;
     
     /**
      * constructor
@@ -36,7 +34,7 @@ public class Sensor {
      * 
      * @param alias 
      */
-    public void setSensor(String alias){
+    public void setSensor(String alias) throws IOException{
         this.alias = alias;
         
         try{
@@ -44,6 +42,7 @@ public class Sensor {
         }catch(Exception a){
             
         }
+        sensor = bus.getDevice(ID);
     }
     /**
      * table for establishing the Alias

@@ -3,15 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.model;
+package BHFermentation.view;
 
 /**
  *
  * @author Mark
  */
-public class Bypass extends Valve{
+public class Alert {
+    String i2cMessages;
     
-    Bypass(){
+    Alert(){
         
+    }
+    
+    public void setI2cAlert(String message){
+        this.i2cMessages = message;
     }
 }
