@@ -5,22 +5,39 @@
  */
 package BHFermentation.model;
 
+import com.pi4j.io.gpio.Pin;
 import java.util.List;
 /**
  *
  * @author Mark
  */
 public class Chamber {
-    private Sensor sensor;
-    private List<Vessel> vessels;
+    private final Sensor sensor;
+    private Vessel [] vessels;
+    private final Fan fan;
+    private final Heater heater;
     
-    
-    Chamber(){
-        
+    /**
+     * Should not instantiate a chamber without a fan and a heater
+     * @param fanPin
+     * @param heaterPin 
+     */
+    Chamber(Pin fanPin, Pin heaterPin){
+        sensor = new Sensor();
+        for(int i = 0; i < 4; i++){
+            vessels[i] = new Vessel();
+        }
+        fan = new Fan(fanPin);
+        heater = new Heater(heaterPin);
     }
     
-    public List<Vessel> getVessels(){
+    /**
+     * gets vessels associated with the chamber
+     * @return 
+     */
+    public Vessel [] getVessels(){
         return vessels;
     }
+    
     
 }

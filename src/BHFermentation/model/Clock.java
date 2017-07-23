@@ -16,9 +16,15 @@ import java.io.IOException;
  */
 public class Clock{
     I2CDevice clock;
-    Clock(){ //generated address
+    Clock(){ 
        clock = null;
    } 
+    
+    /**
+     * sets the clock to the user specified bus address
+     * @param address
+     * @throws IOException 
+     */
     public void setClock(int address) throws IOException{
         clock = bus.getDevice(address);
     }
