@@ -5,17 +5,18 @@
  */
 package BHFermentation.model;
 import static BHFermentation.model.ProcessController.gpio;
-import com.pi4j.io.gpio.PinPullResistance;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_24;
+import com.pi4j.io.gpio.PinState;
+import static com.pi4j.io.gpio.RaspiPin.GPIO_11;
 
 /**
  *
  * @author Mark
  */
 public class Chiller extends Component {
-    Sensor sensor;
-    Chiller(){//GPIO number to be determined later
-       componentPin = gpio.provisionDigitalInputPin(GPIO_24, PinPullResistance.PULL_DOWN);
-    super.ComponentListen();
+    private final Sensor sensor;
+    
+    Chiller(){
+       componentPin = gpio.provisionDigitalOutputPin(GPIO_11, "Chiller", PinState.LOW);
+       sensor = new Sensor();
     }
 }

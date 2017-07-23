@@ -22,7 +22,7 @@ public class Sensor {
      * constructor
      */
     public Sensor(){
-        
+        sensor = null;
     }
     
     /**

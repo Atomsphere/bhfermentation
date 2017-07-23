@@ -7,8 +7,8 @@ package BHFermentation.model;
 
 
 import static BHFermentation.model.ProcessController.gpio;
-import com.pi4j.io.gpio.PinPullResistance;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_24;
+import com.pi4j.io.gpio.PinState;
+import static com.pi4j.io.gpio.RaspiPin.GPIO_23;
 
 /**
  *
@@ -16,7 +16,7 @@ import static com.pi4j.io.gpio.RaspiPin.GPIO_24;
  */
 public class Pump extends Component{
     Pump(){//GPIO number to be determined later
-       componentPin = gpio.provisionDigitalInputPin(GPIO_24, PinPullResistance.PULL_DOWN);
-    super.ComponentListen();
+       componentPin = gpio.provisionDigitalOutputPin(GPIO_23, "Pump", PinState.LOW);
+    
     }
 }

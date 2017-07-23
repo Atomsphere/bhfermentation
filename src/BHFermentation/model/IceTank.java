@@ -6,17 +6,17 @@
 package BHFermentation.model;
 
 import static BHFermentation.model.ProcessController.gpio;
-import com.pi4j.io.gpio.PinPullResistance;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_24;
+import com.pi4j.io.gpio.PinState;
+import static com.pi4j.io.gpio.RaspiPin.GPIO_18;
 
 /**
  *
  * @author Mark
  */
 public class IceTank extends Component{
-    Sensor sensor;
+    private final Sensor sensor;
     IceTank(){//GPIO number to be determined later
-       componentPin = gpio.provisionDigitalInputPin(GPIO_24, PinPullResistance.PULL_DOWN);
-    super.ComponentListen();
+       componentPin = gpio.provisionDigitalOutputPin(GPIO_18, "Chiller", PinState.LOW);
+       sensor = new Sensor();
     }
 }

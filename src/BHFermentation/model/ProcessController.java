@@ -5,20 +5,13 @@
  */
 package BHFermentation.model;
 
-import BHFermentation.view.Alert;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
-import com.pi4j.io.gpio.GpioPin;
-import com.pi4j.io.gpio.GpioPinDigitalInput;
-import com.pi4j.io.gpio.PinPullResistance;
-import com.pi4j.io.gpio.PinState;
-import com.pi4j.io.gpio.RaspiPin;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.util.List;
 
 /**
  *
@@ -26,12 +19,11 @@ import java.util.List;
  */
 public class ProcessController extends Application{
 
-    public List<Double> Temperatures; 
-    private List<Boolean> ComponentStatus;
-    private List<Boolean> ValveStatus;
+    
     final static GpioController gpio = GpioFactory.getInstance();
     
-    
+    private static final GlycolLoop GLYCOLLOOP = new GlycolLoop();
+    private final Clock clock = new Clock();
     /**
      * JavaFX replaces main with start
      * @param stage
@@ -47,44 +39,16 @@ public class ProcessController extends Application{
         stage.show();
     }
     
-    /**
-     * Does nothing right now.
-     * should update to view.
-     * pass by name instead of pin.
-     * @param pin
-     * @param state 
-     */
-    static void notify(GpioPin pin, PinState state) {
-        
-        
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     /**
      *  default constructor
      */
     public ProcessController(){
         
-    }
-    
-    
-    /*boolean getComponentStatus(Component component){
         
     }
     
-    double getSensor(Sensor sensor){
         
-    }
-    
-    boolean initiateRecipe(){
-        
-    }
-    
-    
-    int selectVessel(){
-        
-    }
-    */
     /**
      * to be filled out later
      */

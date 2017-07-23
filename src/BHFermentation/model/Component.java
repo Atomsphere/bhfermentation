@@ -6,9 +6,7 @@
 package BHFermentation.model;
 
 
-import com.pi4j.io.gpio.GpioPinDigitalInput;
-import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
-import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import com.pi4j.io.gpio.GpioPinDigitalOutput;
 
 
 
@@ -18,16 +16,25 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
  */
 public abstract class Component {
     
-    GpioPinDigitalInput componentPin;
+    GpioPinDigitalOutput componentPin;
     
     Component(){
         
     }
     
-    public void ComponentListen(){
-        componentPin.addListener((GpioPinListenerDigital) (GpioPinDigitalStateChangeEvent event) -> {
-            ProcessController.notify(event.getPin(), event.getState());
-            });
-    }    
+    /**
+     * sets state of a GPIO output Pin
+     * receives boolean, if true energize
+     * else de energize
+     * @param state 
+     */
+    public void setState(boolean state){
+        if(state){
+            componentPin.high();
+        }else{
+            componentPin.low();
+        }
+    }
+     
     
 }

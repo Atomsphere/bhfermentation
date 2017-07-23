@@ -13,6 +13,6 @@ public class AmbientUI {
     Sensor sensor;
     
     AmbientUI(){
-        
+        sensor = new Sensor();
     }
 }

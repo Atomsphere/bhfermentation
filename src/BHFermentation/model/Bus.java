@@ -18,8 +18,7 @@ import java.io.IOException;
 public class Bus {
     
     static I2CBus bus;
-//private final GpioPinDigitalInput sda = gpio.provisionDigitalInputPin(RaspiPin.GPIO_03, PinPullResistance.PULL_DOWN);
-    //private final GpioPinDigitalInput scl = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05, PinPullResistance.PULL_DOWN);
+
     Alert alert;
     
     Bus()throws IOException, UnsupportedBusNumberException{
@@ -28,11 +27,7 @@ public class Bus {
     
     
     
-   // alert.setI2cAlert("I2C bus succesfully instantiated");
-    
-    //alert.setI2cAlert("IO exception on the bus");
-    
-    //alert.setI2cAlert("Bus 1 not found");
+   
     
         
         
