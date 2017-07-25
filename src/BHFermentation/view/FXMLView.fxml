@@ -1,11 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="1024" prefWidth="1280" xmlns:fx="http://javafx.com/fxml/1">
-    
-</AnchorPane>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Import Recipe" />
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" layoutX="28.0" prefHeight="341.0" prefWidth="564.0" text="Chamber one">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="ChamberOneTable" prefHeight="230.0" prefWidth="296.0">
+                          <columns>
+                            <TableColumn fx:id="ChamberOneTableColumnVessel" prefWidth="75.0" text="Vessel" />
+                            <TableColumn fx:id="ChamberOneTableColumnStatus" prefWidth="75.0" text="Status" />
+                              <TableColumn fx:id="ChamberOneTableColumnTemp" prefWidth="145.00003051757812" text="Temperature" />
+                          </columns>
+                        </TableView>
+                        <Text layoutX="306.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heater:" wrappingWidth="115.1800537109375" AnchorPane.leftAnchor="306.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="ChamberOneHeaterStatus" layoutX="409.0" layoutY="17.0" prefHeight="33.0" prefWidth="55.0" />
+                        <Text layoutX="304.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fan:" wrappingWidth="88.43572998046875" AnchorPane.leftAnchor="306.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="ChamberOneFanStatus" layoutX="382.0" layoutY="90.0" prefHeight="35.0" prefWidth="63.0" />
+                        <Text layoutX="278.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valve:" wrappingWidth="86.36389923095703" AnchorPane.leftAnchor="306.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="ChamberOneHeaterPercentage" layoutX="472.0" layoutY="17.0" prefHeight="36.0" prefWidth="62.0" />
+                        <TextField fx:id="ChamberOneValveStatus" layoutX="395.0" layoutY="188.0" prefHeight="62.0" prefWidth="60.0" AnchorPane.bottomAnchor="78.0" />
+                        <TextField fx:id="ChamberOneValvePercentage" layoutX="470.0" layoutY="185.0" prefHeight="53.0" prefWidth="61.0" AnchorPane.bottomAnchor="77.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+               <graphic>
+                  <TextField fx:id="ChamberOneTemp" prefHeight="25.0" prefWidth="48.0" />
+               </graphic>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="45.0" layoutY="368.0" prefHeight="226.0" prefWidth="541.0" text="Ice Tank">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="104.0" prefWidth="234.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tank Status:" wrappingWidth="282.15318298339844">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tank Temp:">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <TextField layoutX="198.0" layoutY="10.0" prefHeight="41.0" prefWidth="109.0" />
+                        <TextField layoutX="197.0" layoutY="58.0" prefHeight="41.0" prefWidth="111.0" />
+                        <Text layoutX="230.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valve:" wrappingWidth="86.36389923095703">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                        <TextField layoutX="309.0" layoutY="117.0" prefHeight="44.0" prefWidth="55.0" />
+                        <TextField layoutX="375.0" layoutY="117.0" prefHeight="44.0" prefWidth="59.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="683.0" layoutY="367.0" prefHeight="229.0" prefWidth="553.0" text="Glycol Loop">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="549.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="233.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supply Temperature:">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chiller Status:">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pump Status:">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bypass Status:">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <TextField fx:id="GlycolTemp" layoutX="344.0" layoutY="7.0" prefHeight="41.0" prefWidth="86.0" />
+                        <TextField fx:id="ChillerStatus" layoutX="297.0" layoutY="56.0" prefHeight="48.0" prefWidth="86.0" />
+                        <TextField fx:id="PumpStatus" layoutX="297.0" layoutY="106.0" prefHeight="44.0" prefWidth="86.0" />
+                        <TextField fx:id="BypassStatus" layoutX="297.0" layoutY="151.0" prefHeight="41.0" prefWidth="86.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="661.0" prefHeight="351.0" prefWidth="618.0" text="Chamber two">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="ChamberTwoTable" prefHeight="236.0" prefWidth="297.0">
+                           <columns>
+                              <TableColumn fx:id="ChamberTwoTableColumnVessel" prefWidth="75.0" text="Vessel" />
+                              <TableColumn fx:id="ChamberTwoTableColumnStatus" prefWidth="75.0" text="Status" />
+                              <TableColumn fx:id="ChamberTwoTableColumnTemp" prefWidth="145.04754638671875" text="Temperature" />
+                           </columns>
+                        </TableView>
+                        <Text layoutX="306.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heater:" wrappingWidth="115.1800537109375" AnchorPane.leftAnchor="306.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="ChamberTwoHeaterStatus" layoutX="417.0" layoutY="21.0" prefHeight="33.0" prefWidth="55.0" />
+                        <Text layoutX="304.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fan:" wrappingWidth="88.43572998046875" AnchorPane.leftAnchor="306.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="ChamberTwoFanStatus" layoutX="403.0" layoutY="102.0" prefHeight="35.0" prefWidth="63.0" />
+                        <Text layoutX="278.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valve:" wrappingWidth="86.36389923095703" AnchorPane.leftAnchor="306.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="ChamberTwoHeaterPercentage" layoutX="508.0" layoutY="21.0" prefHeight="36.0" prefWidth="62.0" />
+                        <TextField fx:id="ChamberTwoValveStatus" layoutX="418.0" layoutY="191.0" prefHeight="44.0" prefWidth="55.0" />
+                        <TextField fx:id="ChamberTwoValvePercentage" layoutX="499.0" layoutY="187.0" prefHeight="44.0" prefWidth="55.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+               <graphic>
+                  <TextField fx:id="ChamberTwoTemp" prefHeight="25.0" prefWidth="55.0" />
+               </graphic>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="352.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="738.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ambient">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="740.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" AnchorPane.leftAnchor="729.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="729.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temp:" AnchorPane.leftAnchor="729.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="193.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chestfreezer" wrappingWidth="215.62826538085938" AnchorPane.leftAnchor="193.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="199.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temp:" AnchorPane.leftAnchor="193.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="220.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" AnchorPane.leftAnchor="193.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <TextField fx:id="AmbientTemp" layoutX="850.0" layoutY="91.0" prefHeight="42.0" prefWidth="89.0" />
+            <TextField fx:id="ChestFreezerTemp" layoutX="310.0" layoutY="95.0" prefHeight="37.0" prefWidth="94.0" />
+            <TextField fx:id="ChestFreezerStatus" layoutX="309.0" layoutY="150.0" prefHeight="37.0" prefWidth="94.0" />
+            <TextField fx:id="ChestFreezerTemp2" layoutX="432.0" layoutY="94.0" prefHeight="37.0" prefWidth="94.0" />
+            <TextField fx:id="AmbientStatus" layoutX="866.0" layoutY="157.0" prefHeight="42.0" prefWidth="89.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
