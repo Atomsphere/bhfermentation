@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 /**
  *
  * @author Mark
@@ -39,6 +40,9 @@ public class ProcessController extends Application{
         stage.show();
     }
     
+     public static void main(String[] args) {
+        launch(args);
+    }
     
     /**
      *  default constructor
@@ -48,7 +52,8 @@ public class ProcessController extends Application{
         
     }
     
-        
+    
+    
     /**
      * to be filled out later
      */
