@@ -17,7 +17,7 @@ import com.pi4j.io.gpio.GpioFactory;
 public class ProcessController {
 
     
-    final static GpioController gpio = GpioFactory.getInstance();
+    final static GpioController GPIO = GpioFactory.getInstance();
     
     private static final GlycolLoop GLYCOLLOOP = new GlycolLoop();
     private final Clock clock = new Clock();

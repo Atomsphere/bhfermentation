@@ -28,32 +28,101 @@ public class JFrameView extends javax.swing.JFrame {
     private void initComponents() {
 
         label1 = new java.awt.Label();
+        Fan1Group = new javax.swing.ButtonGroup();
+        Fan2Group = new javax.swing.ButtonGroup();
+        Heater1Group = new javax.swing.ButtonGroup();
+        Heater2Group = new javax.swing.ButtonGroup();
+        PumpGroup = new javax.swing.ButtonGroup();
+        ChestFreezerGroup = new javax.swing.ButtonGroup();
+        IceTankGroup = new javax.swing.ButtonGroup();
+        Valve1Group = new javax.swing.ButtonGroup();
+        Valve2Group = new javax.swing.ButtonGroup();
+        IceTankValveGroup = new javax.swing.ButtonGroup();
+        BypassGroup = new javax.swing.ButtonGroup();
+        ChillerGroup = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
-        jTextArea1 = new javax.swing.JTextArea();
+        TextualWarnings = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        Chamber1Label = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        chamber1Table = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        String c2V1 = "Inactive";
+        String c2V2 = "Inactive";
+        String c2V3 = "Inactive";
+        String c2V4 = "Inactive";
+        int c2V1Temp = -200;
+        int c2V2Temp = -200;
+        int c2V3Temp = -200;
+        int c2V4Temp = -200;
+        chamber2Table = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        componentsTable = new javax.swing.JTable();
+        Chamber1Temperature = new javax.swing.JTextField();
+        Chamber2Label = new javax.swing.JTextField();
+        Chamber2Temperature = new javax.swing.JTextField();
+        ComponentsLabel = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jTextField6 = new javax.swing.JTextField();
+        sensorsTable = new javax.swing.JTable();
+        SensorLabel = new javax.swing.JTextField();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        jTextField7 = new javax.swing.JTextField();
+        ValvesLabel = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        UnusedSpaceLabel = new javax.swing.JTextArea();
+        ORValve1ACS = new javax.swing.JRadioButton();
+        ORValve1On = new javax.swing.JRadioButton();
+        ORValve1Off = new javax.swing.JRadioButton();
+        OverridesLabel = new javax.swing.JTextField();
+        Valve1ORLabel = new javax.swing.JTextField();
+        Valve2ORLabel = new javax.swing.JTextField();
+        ORValve2ACS = new javax.swing.JRadioButton();
+        ORValve2On = new javax.swing.JRadioButton();
+        ORValve2Off = new javax.swing.JRadioButton();
+        Valve3ORLabel = new javax.swing.JTextField();
+        ORValve3ACS = new javax.swing.JRadioButton();
+        ORValve3On = new javax.swing.JRadioButton();
+        ORValve3Off = new javax.swing.JRadioButton();
+        BypassORLabel = new javax.swing.JTextField();
+        ORBypassACS = new javax.swing.JRadioButton();
+        ORBypassOn = new javax.swing.JRadioButton();
+        ORBypassOff = new javax.swing.JRadioButton();
+        PumpORLabel = new javax.swing.JTextField();
+        ORPumpACS = new javax.swing.JRadioButton();
+        ORPumpOn = new javax.swing.JRadioButton();
+        ORPumpOff = new javax.swing.JRadioButton();
+        ORChillerOff = new javax.swing.JRadioButton();
+        ORChillerOn = new javax.swing.JRadioButton();
+        ORChillerACS = new javax.swing.JRadioButton();
+        ChillerORLabel = new javax.swing.JTextField();
+        IceTankORLabel = new javax.swing.JTextField();
+        ORIceTankACS = new javax.swing.JRadioButton();
+        ORIceTankOn = new javax.swing.JRadioButton();
+        ORIceTankOff = new javax.swing.JRadioButton();
+        ORFreezerOff = new javax.swing.JRadioButton();
+        ORFreezerOn = new javax.swing.JRadioButton();
+        ORFreezerACS = new javax.swing.JRadioButton();
+        FreezerORLabel = new javax.swing.JTextField();
+        Heater2ORLabel = new javax.swing.JTextField();
+        ORHeater2ACS = new javax.swing.JRadioButton();
+        ORHeater2On = new javax.swing.JRadioButton();
+        ORHeater2Off = new javax.swing.JRadioButton();
+        ORFan2Off = new javax.swing.JRadioButton();
+        ORFan2On = new javax.swing.JRadioButton();
+        ORFan2ACS = new javax.swing.JRadioButton();
+        Fan2ORLabel = new javax.swing.JTextField();
+        Heater1ORLabel = new javax.swing.JTextField();
+        Fan1ORLabel = new javax.swing.JTextField();
+        ORFan1ACS = new javax.swing.JRadioButton();
+        ORFan1On = new javax.swing.JRadioButton();
+        ORFan1Off = new javax.swing.JRadioButton();
+        ORHeater1Off = new javax.swing.JRadioButton();
+        ORHeater1On = new javax.swing.JRadioButton();
+        ORHeater1ACS = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -66,82 +135,94 @@ public class JFrameView extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Reserved for crucial information... output error... warnings etc.");
-        jPanel3.add(jTextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));
+        TextualWarnings.setEditable(false);
+        TextualWarnings.setColumns(20);
+        TextualWarnings.setRows(5);
+        TextualWarnings.setText("Reserved for crucial information... output error... warnings etc.");
+        jPanel3.add(TextualWarnings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, -1, 60));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("Chamber 1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Chamber1Label.setEditable(false);
+        Chamber1Label.setText("Chamber 1");
+        Chamber1Label.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                Chamber1LabelActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
+        chamber1Table.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
             {"Vessel 1",null,null},
             {"Vessel 2", null,null},
             {"Vessel 3", null, null},
+            {"Vessel 4", null, null},
             {"Heater", null, null},
             {"Fan", null, "-"}},
         new String [] {"Label","State","Temperature"}));
-jScrollPane1.setViewportView(jTable1);
+jScrollPane1.setViewportView(chamber1Table);
 
-jTable2.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-    {"Vessel 1",null,null},
-    {"Vessel 2", null,null},
-    {"Vessel 3", null, null},
+chamber2Table.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
+    {"Vessel 1",c2V1,c2V1Temp + "\u00B0"},
+    {"Vessel 2",c2V2,c2V2Temp + "\u00B0"},
+    {"Vessel 3",c2V3,c2V3Temp + "\u00B0"},
+    {"Vessel 4",c2V4,c2V4Temp + "\u00B0"},
     {"Heater", null, null},
     {"Fan", null, "-"}},
     new String [] {"Label","State","Temperature"}));
-    jScrollPane4.setViewportView(jTable2);
+    jScrollPane4.setViewportView(chamber2Table);
 
-    jTable5.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-        {"Ice Tank",null},
-        {"Freezer", null},
+    componentsTable.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
+        {"Pump",null},
         {"Chiller", null},
-        {"Pump", null}},
+        {"Ice Tank", null},
+        {"Freezer", null}},
     new String [] {"Label","State"}));
-    jScrollPane5.setViewportView(jTable5);
+    jScrollPane5.setViewportView(componentsTable);
 
-    jTextField2.setText("degrees");
+    Chamber1Temperature.setEditable(false);
+    Chamber1Temperature.setText("degrees");
 
-    jTextField3.setEditable(false);
-    jTextField3.setText("Chamber 2");
-
-    jTextField4.setText("degrees");
-    jTextField4.addActionListener(new java.awt.event.ActionListener() {
+    Chamber2Label.setEditable(false);
+    Chamber2Label.setText("Chamber 2");
+    Chamber2Label.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jTextField4ActionPerformed(evt);
+            Chamber2LabelActionPerformed(evt);
         }
     });
 
-    jTextField5.setText("Components");
-    jTextField5.addActionListener(new java.awt.event.ActionListener() {
+    Chamber2Temperature.setEditable(false);
+    Chamber2Temperature.setText("degrees");
+    Chamber2Temperature.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jTextField5ActionPerformed(evt);
+            Chamber2TemperatureActionPerformed(evt);
         }
     });
 
-    jTable3.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
+    ComponentsLabel.setEditable(false);
+    ComponentsLabel.setText("Components");
+    ComponentsLabel.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ComponentsLabelActionPerformed(evt);
+        }
+    });
+
+    sensorsTable.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
         {"Freezer 1",null},
         {"Freezer 2", null},
         {"Ice Tank 3", null},
         {"Glycol", null},
         {"Ambient", null}},
     new String [] {"Label","Temperature"}));
-    jScrollPane6.setViewportView(jTable3);
+    jScrollPane6.setViewportView(sensorsTable);
 
-    jTextField6.setText("Other sensors");
-    jTextField6.addActionListener(new java.awt.event.ActionListener() {
+    SensorLabel.setEditable(false);
+    SensorLabel.setText("Other sensors");
+    SensorLabel.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jTextField6ActionPerformed(evt);
+            SensorLabelActionPerformed(evt);
         }
     });
 
@@ -153,10 +234,11 @@ jTable2.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
     new String [] {"Label","State","Position"}));
     jScrollPane8.setViewportView(jTable4);
 
-    jTextField7.setText("Valves");
-    jTextField7.addActionListener(new java.awt.event.ActionListener() {
+    ValvesLabel.setEditable(false);
+    ValvesLabel.setText("Valves");
+    ValvesLabel.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jTextField7ActionPerformed(evt);
+            ValvesLabelActionPerformed(evt);
         }
     });
 
@@ -170,53 +252,54 @@ jTable2.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComponentsLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SensorLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Chamber2Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(187, 187, 187)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addContainerGap(8, Short.MAX_VALUE))
+                        .addComponent(Chamber2Temperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addGroup(jPanel1Layout.createSequentialGroup()
-            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Chamber1Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Chamber1Temperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(53, 53, 53))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGap(0, 2, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(ValvesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap())
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap(44, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Chamber1Temperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Chamber1Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Chamber2Temperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Chamber2Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(ComponentsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(ValvesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap())
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(SensorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
 
     jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 940));
@@ -227,12 +310,286 @@ jTable2.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
 
     jPanel2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 60, 20));
 
-    jTextArea3.setColumns(20);
-    jTextArea3.setRows(5);
-    jTextArea3.setText("This is a place holder for more information. ");
-    jScrollPane3.setViewportView(jTextArea3);
+    UnusedSpaceLabel.setEditable(false);
+    UnusedSpaceLabel.setColumns(20);
+    UnusedSpaceLabel.setRows(5);
+    UnusedSpaceLabel.setText("This is a place holder for more information. ");
+    jScrollPane3.setViewportView(UnusedSpaceLabel);
 
-    jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 3, 910, 940));
+    jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 83, 560, 860));
+
+    Valve1Group.add(ORValve1ACS);
+    ORValve1ACS.setSelected(true);
+    ORValve1ACS.setText("ACS");
+    jPanel2.add(ORValve1ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 640, 60, -1));
+
+    Valve1Group.add(ORValve1On);
+    ORValve1On.setText("ON");
+    ORValve1On.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve1OnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve1On, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 660, 50, -1));
+
+    Valve1Group.add(ORValve1Off);
+    ORValve1Off.setText("OFF");
+    jPanel2.add(ORValve1Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 680, 60, -1));
+
+    OverridesLabel.setEditable(false);
+    OverridesLabel.setText("OVERRIDES");
+    OverridesLabel.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            OverridesLabelActionPerformed(evt);
+        }
+    });
+    jPanel2.add(OverridesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 90, 40));
+
+    Valve1ORLabel.setEditable(false);
+    Valve1ORLabel.setText("Chamber 1");
+    jPanel2.add(Valve1ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 610, 80, -1));
+
+    Valve2ORLabel.setEditable(false);
+    Valve2ORLabel.setText("Chamber 2");
+    jPanel2.add(Valve2ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 610, 80, -1));
+
+    Valve2Group.add(ORValve2ACS);
+    ORValve2ACS.setSelected(true);
+    ORValve2ACS.setText("ACS");
+    jPanel2.add(ORValve2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 60, -1));
+
+    Valve2Group.add(ORValve2On);
+    ORValve2On.setText("ON");
+    ORValve2On.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve2OnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve2On, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 660, 50, -1));
+
+    Valve2Group.add(ORValve2Off);
+    ORValve2Off.setText("OFF");
+    jPanel2.add(ORValve2Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 680, 60, -1));
+
+    Valve3ORLabel.setEditable(false);
+    Valve3ORLabel.setText("Ice Tank");
+    jPanel2.add(Valve3ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 610, 60, -1));
+
+    IceTankValveGroup.add(ORValve3ACS);
+    ORValve3ACS.setSelected(true);
+    ORValve3ACS.setText("ACS");
+    jPanel2.add(ORValve3ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, 60, -1));
+
+    IceTankValveGroup.add(ORValve3On);
+    ORValve3On.setText("ON");
+    ORValve3On.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve3OnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve3On, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 660, 50, -1));
+
+    IceTankValveGroup.add(ORValve3Off);
+    ORValve3Off.setText("OFF");
+    jPanel2.add(ORValve3Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 680, 60, -1));
+
+    BypassORLabel.setEditable(false);
+    BypassORLabel.setText("Bypass");
+    jPanel2.add(BypassORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 610, 80, -1));
+
+    BypassGroup.add(ORBypassACS);
+    ORBypassACS.setSelected(true);
+    ORBypassACS.setText("ACS");
+    jPanel2.add(ORBypassACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 640, 60, -1));
+
+    BypassGroup.add(ORBypassOn);
+    ORBypassOn.setText("ON");
+    ORBypassOn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORBypassOnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORBypassOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 660, 50, -1));
+
+    BypassGroup.add(ORBypassOff);
+    ORBypassOff.setText("OFF");
+    jPanel2.add(ORBypassOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 680, 60, -1));
+
+    PumpORLabel.setEditable(false);
+    PumpORLabel.setText("Pump");
+    jPanel2.add(PumpORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 80, -1));
+
+    PumpGroup.add(ORPumpACS);
+    ORPumpACS.setSelected(true);
+    ORPumpACS.setText("ACS");
+    jPanel2.add(ORPumpACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, 60, -1));
+
+    PumpGroup.add(ORPumpOn);
+    ORPumpOn.setText("ON");
+    ORPumpOn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORPumpOnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORPumpOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 50, -1));
+
+    PumpGroup.add(ORPumpOff);
+    ORPumpOff.setText("OFF");
+    jPanel2.add(ORPumpOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 60, -1));
+
+    ChillerGroup.add(ORChillerOff);
+    ORChillerOff.setText("OFF");
+    jPanel2.add(ORChillerOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 60, -1));
+
+    ChillerGroup.add(ORChillerOn);
+    ORChillerOn.setText("ON");
+    ORChillerOn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORChillerOnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORChillerOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 50, -1));
+
+    ChillerGroup.add(ORChillerACS);
+    ORChillerACS.setSelected(true);
+    ORChillerACS.setText("ACS");
+    jPanel2.add(ORChillerACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, 60, -1));
+
+    ChillerORLabel.setEditable(false);
+    ChillerORLabel.setText("Chiller");
+    jPanel2.add(ChillerORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 80, -1));
+
+    IceTankORLabel.setEditable(false);
+    IceTankORLabel.setText("Ice Tank");
+    jPanel2.add(IceTankORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 60, -1));
+
+    IceTankGroup.add(ORIceTankACS);
+    ORIceTankACS.setSelected(true);
+    ORIceTankACS.setText("ACS");
+    jPanel2.add(ORIceTankACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 60, -1));
+
+    IceTankGroup.add(ORIceTankOn);
+    ORIceTankOn.setText("ON");
+    ORIceTankOn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORIceTankOnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORIceTankOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 50, -1));
+
+    IceTankGroup.add(ORIceTankOff);
+    ORIceTankOff.setText("OFF");
+    jPanel2.add(ORIceTankOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 60, -1));
+
+    ChestFreezerGroup.add(ORFreezerOff);
+    ORFreezerOff.setText("OFF");
+    jPanel2.add(ORFreezerOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, 60, -1));
+
+    ChestFreezerGroup.add(ORFreezerOn);
+    ORFreezerOn.setText("ON");
+    ORFreezerOn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORFreezerOnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORFreezerOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, 50, -1));
+
+    ChestFreezerGroup.add(ORFreezerACS);
+    ORFreezerACS.setSelected(true);
+    ORFreezerACS.setText("ACS");
+    jPanel2.add(ORFreezerACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, 60, -1));
+
+    FreezerORLabel.setEditable(false);
+    FreezerORLabel.setText("Freezer");
+    jPanel2.add(FreezerORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 80, -1));
+
+    Heater2ORLabel.setEditable(false);
+    Heater2ORLabel.setText("Heater");
+    jPanel2.add(Heater2ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 80, -1));
+
+    Heater2Group.add(ORHeater2ACS);
+    ORHeater2ACS.setSelected(true);
+    ORHeater2ACS.setText("ACS");
+    jPanel2.add(ORHeater2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 60, -1));
+
+    Heater2Group.add(ORHeater2On);
+    ORHeater2On.setText("ON");
+    ORHeater2On.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORHeater2OnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORHeater2On, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 50, -1));
+
+    Heater2Group.add(ORHeater2Off);
+    ORHeater2Off.setText("OFF");
+    jPanel2.add(ORHeater2Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 60, -1));
+
+    Fan2Group.add(ORFan2Off);
+    ORFan2Off.setText("OFF");
+    jPanel2.add(ORFan2Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 60, -1));
+
+    Fan2Group.add(ORFan2On);
+    ORFan2On.setText("ON");
+    ORFan2On.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORFan2OnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORFan2On, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 50, -1));
+
+    Fan2Group.add(ORFan2ACS);
+    ORFan2ACS.setSelected(true);
+    ORFan2ACS.setText("ACS");
+    jPanel2.add(ORFan2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 60, -1));
+
+    Fan2ORLabel.setEditable(false);
+    Fan2ORLabel.setText("Fan");
+    jPanel2.add(Fan2ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 80, -1));
+
+    Heater1ORLabel.setEditable(false);
+    Heater1ORLabel.setText("Heater");
+    jPanel2.add(Heater1ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 80, -1));
+
+    Fan1ORLabel.setEditable(false);
+    Fan1ORLabel.setText("Fan");
+    jPanel2.add(Fan1ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 80, -1));
+
+    Fan1Group.add(ORFan1ACS);
+    ORFan1ACS.setSelected(true);
+    ORFan1ACS.setText("ACS");
+    jPanel2.add(ORFan1ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 60, -1));
+
+    Fan1Group.add(ORFan1On);
+    ORFan1On.setText("ON");
+    ORFan1On.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORFan1OnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORFan1On, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 50, -1));
+
+    Fan1Group.add(ORFan1Off);
+    ORFan1Off.setText("OFF");
+    jPanel2.add(ORFan1Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 60, -1));
+
+    Heater1Group.add(ORHeater1Off);
+    ORHeater1Off.setText("OFF");
+    jPanel2.add(ORHeater1Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 60, -1));
+
+    Heater1Group.add(ORHeater1On);
+    ORHeater1On.setText("ON");
+    ORHeater1On.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORHeater1OnActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORHeater1On, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 50, -1));
+
+    Heater1Group.add(ORHeater1ACS);
+    ORHeater1ACS.setSelected(true);
+    ORHeater1ACS.setText("ACS");
+    jPanel2.add(ORHeater1ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 60, -1));
 
     getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 970));
 
@@ -247,30 +604,159 @@ jTable2.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void Chamber1LabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Chamber1LabelActionPerformed
+        // Label, does not require implementation
+    }//GEN-LAST:event_Chamber1LabelActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    private void ComponentsLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComponentsLabelActionPerformed
+        // Label, does not require implementation
+    }//GEN-LAST:event_ComponentsLabelActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    private void ValvesLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValvesLabelActionPerformed
+        // Label, does not require implementation
+    }//GEN-LAST:event_ValvesLabelActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void SensorLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SensorLabelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_SensorLabelActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void Chamber2TemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Chamber2TemperatureActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_Chamber2TemperatureActionPerformed
+
+    private void ORValve1OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve1OnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORValve1OnActionPerformed
+
+    private void ORValve2OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve2OnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORValve2OnActionPerformed
+
+    private void ORValve3OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve3OnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORValve3OnActionPerformed
+
+    private void ORBypassOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORBypassOnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORBypassOnActionPerformed
+
+    private void ORPumpOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORPumpOnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORPumpOnActionPerformed
+
+    private void ORChillerOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORChillerOnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORChillerOnActionPerformed
+
+    private void ORIceTankOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORIceTankOnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORIceTankOnActionPerformed
+
+    private void ORFreezerOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFreezerOnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORFreezerOnActionPerformed
+
+    private void ORHeater2OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORHeater2OnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORHeater2OnActionPerformed
+
+    private void ORFan2OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFan2OnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORFan2OnActionPerformed
+
+    private void ORFan1OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFan1OnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORFan1OnActionPerformed
+
+    private void ORHeater1OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORHeater1OnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORHeater1OnActionPerformed
+
+    private void OverridesLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverridesLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OverridesLabelActionPerformed
+
+    private void Chamber2LabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Chamber2LabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Chamber2LabelActionPerformed
 
     
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup BypassGroup;
+    private javax.swing.JTextField BypassORLabel;
+    private javax.swing.JTextField Chamber1Label;
+    private javax.swing.JTextField Chamber1Temperature;
+    private javax.swing.JTextField Chamber2Label;
+    private javax.swing.JTextField Chamber2Temperature;
+    private javax.swing.ButtonGroup ChestFreezerGroup;
+    private javax.swing.ButtonGroup ChillerGroup;
+    private javax.swing.JTextField ChillerORLabel;
+    private javax.swing.JTextField ComponentsLabel;
+    private javax.swing.ButtonGroup Fan1Group;
+    private javax.swing.JTextField Fan1ORLabel;
+    private javax.swing.ButtonGroup Fan2Group;
+    private javax.swing.JTextField Fan2ORLabel;
+    private javax.swing.JTextField FreezerORLabel;
+    private javax.swing.ButtonGroup Heater1Group;
+    private javax.swing.JTextField Heater1ORLabel;
+    private javax.swing.ButtonGroup Heater2Group;
+    private javax.swing.JTextField Heater2ORLabel;
+    private javax.swing.ButtonGroup IceTankGroup;
+    private javax.swing.JTextField IceTankORLabel;
+    private javax.swing.ButtonGroup IceTankValveGroup;
+    private javax.swing.JRadioButton ORBypassACS;
+    private javax.swing.JRadioButton ORBypassOff;
+    private javax.swing.JRadioButton ORBypassOn;
+    private javax.swing.JRadioButton ORChillerACS;
+    private javax.swing.JRadioButton ORChillerOff;
+    private javax.swing.JRadioButton ORChillerOn;
+    private javax.swing.JRadioButton ORFan1ACS;
+    private javax.swing.JRadioButton ORFan1Off;
+    private javax.swing.JRadioButton ORFan1On;
+    private javax.swing.JRadioButton ORFan2ACS;
+    private javax.swing.JRadioButton ORFan2Off;
+    private javax.swing.JRadioButton ORFan2On;
+    private javax.swing.JRadioButton ORFreezerACS;
+    private javax.swing.JRadioButton ORFreezerOff;
+    private javax.swing.JRadioButton ORFreezerOn;
+    private javax.swing.JRadioButton ORHeater1ACS;
+    private javax.swing.JRadioButton ORHeater1Off;
+    private javax.swing.JRadioButton ORHeater1On;
+    private javax.swing.JRadioButton ORHeater2ACS;
+    private javax.swing.JRadioButton ORHeater2Off;
+    private javax.swing.JRadioButton ORHeater2On;
+    private javax.swing.JRadioButton ORIceTankACS;
+    private javax.swing.JRadioButton ORIceTankOff;
+    private javax.swing.JRadioButton ORIceTankOn;
+    private javax.swing.JRadioButton ORPumpACS;
+    private javax.swing.JRadioButton ORPumpOff;
+    private javax.swing.JRadioButton ORPumpOn;
+    private javax.swing.JRadioButton ORValve1ACS;
+    private javax.swing.JRadioButton ORValve1Off;
+    private javax.swing.JRadioButton ORValve1On;
+    private javax.swing.JRadioButton ORValve2ACS;
+    private javax.swing.JRadioButton ORValve2Off;
+    private javax.swing.JRadioButton ORValve2On;
+    private javax.swing.JRadioButton ORValve3ACS;
+    private javax.swing.JRadioButton ORValve3Off;
+    private javax.swing.JRadioButton ORValve3On;
+    private javax.swing.JTextField OverridesLabel;
+    private javax.swing.ButtonGroup PumpGroup;
+    private javax.swing.JTextField PumpORLabel;
+    private javax.swing.JTextField SensorLabel;
+    private javax.swing.JTextArea TextualWarnings;
+    private javax.swing.JTextArea UnusedSpaceLabel;
+    private javax.swing.ButtonGroup Valve1Group;
+    private javax.swing.JTextField Valve1ORLabel;
+    private javax.swing.ButtonGroup Valve2Group;
+    private javax.swing.JTextField Valve2ORLabel;
+    private javax.swing.JTextField Valve3ORLabel;
+    private javax.swing.JTextField ValvesLabel;
+    private javax.swing.JTable chamber1Table;
+    private javax.swing.JTable chamber2Table;
+    private javax.swing.JTable componentsTable;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -285,21 +771,9 @@ jTable2.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private java.awt.Label label1;
+    private javax.swing.JTable sensorsTable;
     // End of variables declaration//GEN-END:variables
 }

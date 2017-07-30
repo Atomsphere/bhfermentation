@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package BHFermentation.model;
-import static BHFermentation.model.ProcessController.gpio;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_08;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_10;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_12;
@@ -17,6 +16,7 @@ import static com.pi4j.io.gpio.RaspiPin.GPIO_23;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_27;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_29;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_31;
+import static BHFermentation.model.ProcessController.GPIO;
 
 /**
  *
@@ -35,10 +35,10 @@ public class GlycolLoop {
      * constructor same as everything else, pin number to be decided later
      */
     GlycolLoop(){
-        c1Valve = new Valve(gpio.provisionDigitalOutputPin(GPIO_13), gpio.provisionDigitalOutputPin(GPIO_15));
-        c2Valve = new Valve(gpio.provisionDigitalOutputPin(GPIO_19), gpio.provisionDigitalOutputPin(GPIO_21));
-        iCValve = new Valve(gpio.provisionDigitalOutputPin(GPIO_23), gpio.provisionDigitalOutputPin(GPIO_27));
-        bypassValve = new Valve(gpio.provisionDigitalOutputPin(GPIO_29), gpio.provisionDigitalOutputPin(GPIO_31));
+        c1Valve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_13), GPIO.provisionDigitalOutputPin(GPIO_15));
+        c2Valve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_19), GPIO.provisionDigitalOutputPin(GPIO_21));
+        iCValve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_23), GPIO.provisionDigitalOutputPin(GPIO_27));
+        bypassValve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_29), GPIO.provisionDigitalOutputPin(GPIO_31));
         chestFreezer = new ChestFreezer();
         sensor = new Sensor();
         pump = new Pump();

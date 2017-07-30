@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package BHFermentation.model;
-import static BHFermentation.model.ProcessController.gpio;
 import com.pi4j.io.gpio.PinState;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_11;
+import static BHFermentation.model.ProcessController.GPIO;
 
 /**
  *
@@ -16,7 +16,7 @@ public class Chiller extends Component {
     private final Sensor sensor;
     
     Chiller(){
-       componentPin = gpio.provisionDigitalOutputPin(GPIO_11, "Chiller", PinState.LOW);
+       componentPin = GPIO.provisionDigitalOutputPin(GPIO_11, "Chiller", PinState.LOW);
        sensor = new Sensor();
     }
 }
