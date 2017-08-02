@@ -29,7 +29,7 @@ public class GlycolLoop {
     private final Pump pump;
     private final Chiller chiller;
     final Sensor sensor;
-    private final Chamber chamber1, chamber2;
+    public final Chamber chamber1, chamber2;
     
     /**
      * constructor same as everything else, pin number to be decided later
@@ -47,4 +47,7 @@ public class GlycolLoop {
         chamber2 = new Chamber(GPIO_12, GPIO_16);
     }
     
+    public void setHeatChamber1(boolean state){
+        chamber1.setHeater(state);
+    }
 }
