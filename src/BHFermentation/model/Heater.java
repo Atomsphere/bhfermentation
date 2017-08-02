@@ -5,9 +5,9 @@
  */
 package BHFermentation.model;
 
-import static BHFermentation.model.ProcessController.gpio;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
+import static BHFermentation.model.ProcessController.GPIO;
 
 
 /**
@@ -17,6 +17,6 @@ import com.pi4j.io.gpio.PinState;
 public class Heater extends Component {
     
     Heater(Pin heaterPin){//GPIO number to be determined later
-       componentPin = gpio.provisionDigitalOutputPin(heaterPin, "Heater", PinState.LOW);
+       componentPin = GPIO.provisionDigitalOutputPin(heaterPin, "Heater", PinState.LOW);
     }
 }

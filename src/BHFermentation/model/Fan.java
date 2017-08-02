@@ -6,10 +6,10 @@
 package BHFermentation.model;
 
 
-import static BHFermentation.model.ProcessController.gpio;
 import com.pi4j.io.gpio.Pin;
 
 import com.pi4j.io.gpio.PinState;
+import static BHFermentation.model.ProcessController.GPIO;
 
 /**
  *
@@ -17,6 +17,6 @@ import com.pi4j.io.gpio.PinState;
  */
 public class Fan extends Component{
     Fan(Pin fanPin){//GPIO number to be determined later
-       componentPin = gpio.provisionDigitalOutputPin(fanPin, "Fan", PinState.LOW);
+       componentPin = GPIO.provisionDigitalOutputPin(fanPin, "Fan", PinState.LOW);
     }
 }

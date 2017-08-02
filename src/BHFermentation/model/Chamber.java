@@ -7,11 +7,14 @@ package BHFermentation.model;
 
 import com.pi4j.io.gpio.Pin;
 import java.util.List;
+import java.util.Observable;
 /**
  *
  * @author Mark
  */
-public class Chamber {
+public class Chamber extends Observable{
+    
+    public int temperature;
     private final Sensor sensor;
     private Vessel [] vessels;
     private final Fan fan;
@@ -29,6 +32,7 @@ public class Chamber {
         }
         fan = new Fan(fanPin);
         heater = new Heater(heaterPin);
+        temperature = 0;
     }
     
     /**
@@ -39,5 +43,21 @@ public class Chamber {
         return vessels;
     }
     
+    public void changeTemperature(){
+        for (int i = 0; i <100; i++){
+            temperature++;
+            setChanged();
+            notifyObservers();
+        }
+        
+    }
+    
+    public void setHeater(boolean state){
+        heater.setState(state);
+    }
+    
+    public int getTemperature(){
+        return temperature;
+    }
     
 }

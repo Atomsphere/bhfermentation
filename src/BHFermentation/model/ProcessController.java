@@ -7,6 +7,8 @@ package BHFermentation.model;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -17,7 +19,12 @@ import com.pi4j.io.gpio.GpioFactory;
 public class ProcessController {
 
     
-    final static GpioController gpio = GpioFactory.getInstance();
+    List<Integer> temps = new ArrayList<>();
+    List<String> activity = new ArrayList<>();
+    List<Boolean> state = new ArrayList<>();
+    
+    
+    final static GpioController GPIO = GpioFactory.getInstance();
     
     private static final GlycolLoop GLYCOLLOOP = new GlycolLoop();
     private final Clock clock = new Clock();
@@ -35,6 +42,9 @@ public class ProcessController {
         
     }
     
+    public void setHeater1(boolean state){
+        GLYCOLLOOP.setHeatChamber1(state);
+    }
     
     
 }
