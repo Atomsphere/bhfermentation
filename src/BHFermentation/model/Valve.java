@@ -5,7 +5,10 @@
  */
 package BHFermentation.model;
 
+import static BHFermentation.model.ProcessController.GPIO;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
+import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.PinState;
 
 /**
  * Valve provides methods for opening and closing valves
@@ -15,41 +18,79 @@ import com.pi4j.io.gpio.GpioPinDigitalOutput;
 public class Valve {
     private final GpioPinDigitalOutput open;
     private final GpioPinDigitalOutput close;
-    
-    Valve(GpioPinDigitalOutput open, GpioPinDigitalOutput close){
-        this.open = open;
-        this.close = close;
+    boolean acs = true;
+    static int closedCount = 4;
+    Valve(Pin open, Pin close){
+        this.open = GPIO.provisionDigitalOutputPin(open, "Valve Open", PinState.LOW);
+        this.close = GPIO.provisionDigitalOutputPin(close, "Valve Close", PinState.LOW);
+        
     }
     
     /**
      * sets the pin close as off
      * opens the valve
      */
-    public void Open(){
-        if(close.isHigh())
-            close.low();
+    private void Open(){
+        if(close.isHigh()){
+            closedCount--;
+            close.setState(PinState.LOW);
+        }
 
-        open.high();
+        open.setState(PinState.HIGH);
     }
     
     /**
      * sets the pin open as off
      * closes the valve
      */
-    public void Close(){
-        if(open.isHigh())
-            open.low();
+    private void Close(){
+        if(open.isHigh()){
+            closedCount++;
+            open.setState(PinState.LOW);
+        }
         
-        close.high();
+        close.setState(PinState.HIGH);
     }
     
     /**
-     * freezes valve state at current %
+     * Not implemented in this version. We're assuming a binary state for the
+     * valves
      */
     public void Stop(){
-        if(open.isHigh())
-            open.low();
-        if(close.isHigh())
-            close.low();
+        
+    }
+    
+    public int valveControl(int state){
+        switch (state){
+            case 0: 
+                ACS(true);
+                return closedCount;
+            case 1:
+                Open();
+                ACS(false);
+                return closedCount;
+            case 2:
+                Close();
+                ACS(false);
+                return closedCount;
+            default:
+                return closedCount;
+        }
+    }
+    
+    private void ACS(boolean state){
+        this.acs = state;
+    }
+    
+    public boolean getState(){
+        return close.isHigh();
+    }
+    
+    public int getCount(){
+        return closedCount;
+    }
+    
+    public boolean getACS(){
+        return acs;
     }
 }

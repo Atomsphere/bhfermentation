@@ -37,5 +37,7 @@ public abstract class Component {
         }
     }
      
-    
+    public boolean getState(){
+        return componentPin.isHigh();
+    }
 }

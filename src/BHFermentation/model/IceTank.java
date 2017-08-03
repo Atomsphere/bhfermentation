@@ -6,8 +6,8 @@
 package BHFermentation.model;
 
 import com.pi4j.io.gpio.PinState;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_18;
 import static BHFermentation.model.ProcessController.GPIO;
+import com.pi4j.io.gpio.Pin;
 
 /**
  *
@@ -15,8 +15,8 @@ import static BHFermentation.model.ProcessController.GPIO;
  */
 public class IceTank extends Component{
     private final Sensor sensor;
-    IceTank(){//GPIO number to be determined later
-       componentPin = GPIO.provisionDigitalOutputPin(GPIO_18, "Chiller", PinState.LOW);
+    IceTank(Pin pin){//GPIO number to be determined later
+       componentPin = GPIO.provisionDigitalOutputPin(pin, "Ice Tank", PinState.LOW);
        sensor = new Sensor();
     }
 }

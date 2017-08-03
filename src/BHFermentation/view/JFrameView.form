@@ -224,7 +224,7 @@
                 <Component class="javax.swing.JTable" name="chamber1Table">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.table.DefaultTableModel( new Object [][] {&#xa;    {&quot;Vessel 1&quot;,null,null,null},&#xa;    {&quot;Vessel 2&quot;, null,null,null},&#xa;    {&quot;Vessel 3&quot;, null, null,null},&#xa;    {&quot;Vessel 4&quot;, null, null,null},&#xa;    {&quot;Heater&quot;, null, &quot;-&quot;,&quot;-&quot;},&#xa;    {&quot;Fan&quot;, null, &quot;-&quot;,&quot;-&quot;}},&#xa;new String [] {&quot;Label&quot;,&quot;State&quot;,&quot;Temperature&quot;,&quot;Setpoint&quot;})" type="code"/>
+                      <Connection code="new javax.swing.table.DefaultTableModel( new Object [][] {&#xa;    {&quot;Vessel 1&quot;,processController.c1v1Recipe(),null,null},&#xa;    {&quot;Vessel 2&quot;, processController.c1v2Recipe(),null,null},&#xa;    {&quot;Vessel 3&quot;,processController.c1v3Recipe(), null,null},&#xa;    {&quot;Vessel 4&quot;,processController.c1v4Recipe(), null,null},&#xa;    {&quot;Heater&quot;, null, &quot;-&quot;,&quot;-&quot;},&#xa;    {&quot;Fan&quot;, null, &quot;-&quot;,&quot;-&quot;}},&#xa;new String [] {&quot;Label&quot;,&quot;State&quot;,&quot;Temperature&quot;,&quot;Setpoint&quot;})" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
@@ -439,38 +439,44 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="ACS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve1ACSActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="380" y="640" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ORValve1On">
+        <Component class="javax.swing.JRadioButton" name="ORValve1Open">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="Valve1Group"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ON"/>
+            <Property name="text" type="java.lang.String" value="OPEN"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve1OnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve1OpenActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="380" y="660" width="50" height="-1"/>
+              <AbsoluteConstraints x="380" y="660" width="70" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ORValve1Off">
+        <Component class="javax.swing.JRadioButton" name="ORValve1Close">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="Valve1Group"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="OFF"/>
+            <Property name="text" type="java.lang.String" value="CLOSE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve1CloseActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="380" y="680" width="60" height="-1"/>
+              <AbsoluteConstraints x="380" y="680" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -518,38 +524,44 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="ACS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve2ACSActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="470" y="640" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ORValve2On">
+        <Component class="javax.swing.JRadioButton" name="ORValve2Open">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="Valve2Group"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ON"/>
+            <Property name="text" type="java.lang.String" value="OPEN"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve2OnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve2OpenActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="660" width="50" height="-1"/>
+              <AbsoluteConstraints x="470" y="660" width="70" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ORValve2Off">
+        <Component class="javax.swing.JRadioButton" name="ORValve2Close">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="Valve2Group"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="OFF"/>
+            <Property name="text" type="java.lang.String" value="CLOSE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve2CloseActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="680" width="60" height="-1"/>
+              <AbsoluteConstraints x="470" y="680" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -560,7 +572,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="610" width="60" height="-1"/>
+              <AbsoluteConstraints x="550" y="610" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -572,38 +584,44 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="ACS"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="640" width="60" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="ORValve3On">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="IceTankValveGroup"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="ON"/>
-          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve3OnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve3ACSActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="660" width="50" height="-1"/>
+              <AbsoluteConstraints x="550" y="640" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ORValve3Off">
+        <Component class="javax.swing.JRadioButton" name="ORValve3Open">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="IceTankValveGroup"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="OFF"/>
+            <Property name="text" type="java.lang.String" value="OPEN"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve3OpenActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="680" width="60" height="-1"/>
+              <AbsoluteConstraints x="550" y="660" width="70" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="ORValve3Close">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="IceTankValveGroup"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="CLOSE"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORValve3CloseActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="550" y="680" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -626,38 +644,44 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="ACS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORBypassACSActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="630" y="640" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ORBypassOn">
+        <Component class="javax.swing.JRadioButton" name="ORBypassOpen">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="BypassGroup"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ON"/>
+            <Property name="text" type="java.lang.String" value="OPEN"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORBypassOnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORBypassOpenActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="630" y="660" width="50" height="-1"/>
+              <AbsoluteConstraints x="630" y="660" width="70" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ORBypassOff">
+        <Component class="javax.swing.JRadioButton" name="ORBypassClose">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="BypassGroup"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="OFF"/>
+            <Property name="text" type="java.lang.String" value="CLOSE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORBypassCloseActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="630" y="680" width="60" height="-1"/>
+              <AbsoluteConstraints x="630" y="680" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

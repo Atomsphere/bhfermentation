@@ -5,8 +5,8 @@
  */
 package BHFermentation.model;
 import com.pi4j.io.gpio.PinState;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_11;
 import static BHFermentation.model.ProcessController.GPIO;
+import com.pi4j.io.gpio.Pin;
 
 /**
  *
@@ -15,8 +15,8 @@ import static BHFermentation.model.ProcessController.GPIO;
 public class Chiller extends Component {
     private final Sensor sensor;
     
-    Chiller(){
-       componentPin = GPIO.provisionDigitalOutputPin(GPIO_11, "Chiller", PinState.LOW);
+    Chiller(Pin pin){
+       componentPin = GPIO.provisionDigitalOutputPin(pin, "Chiller", PinState.LOW);
        sensor = new Sensor();
     }
 }

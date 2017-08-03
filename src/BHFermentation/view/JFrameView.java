@@ -79,22 +79,22 @@ public class JFrameView extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         UnusedSpaceLabel = new javax.swing.JTextArea();
         ORValve1ACS = new javax.swing.JRadioButton();
-        ORValve1On = new javax.swing.JRadioButton();
-        ORValve1Off = new javax.swing.JRadioButton();
+        ORValve1Open = new javax.swing.JRadioButton();
+        ORValve1Close = new javax.swing.JRadioButton();
         OverridesLabel = new javax.swing.JTextField();
         Valve1ORLabel = new javax.swing.JTextField();
         Valve2ORLabel = new javax.swing.JTextField();
         ORValve2ACS = new javax.swing.JRadioButton();
-        ORValve2On = new javax.swing.JRadioButton();
-        ORValve2Off = new javax.swing.JRadioButton();
+        ORValve2Open = new javax.swing.JRadioButton();
+        ORValve2Close = new javax.swing.JRadioButton();
         Valve3ORLabel = new javax.swing.JTextField();
         ORValve3ACS = new javax.swing.JRadioButton();
-        ORValve3On = new javax.swing.JRadioButton();
-        ORValve3Off = new javax.swing.JRadioButton();
+        ORValve3Open = new javax.swing.JRadioButton();
+        ORValve3Close = new javax.swing.JRadioButton();
         BypassORLabel = new javax.swing.JTextField();
         ORBypassACS = new javax.swing.JRadioButton();
-        ORBypassOn = new javax.swing.JRadioButton();
-        ORBypassOff = new javax.swing.JRadioButton();
+        ORBypassOpen = new javax.swing.JRadioButton();
+        ORBypassClose = new javax.swing.JRadioButton();
         PumpORLabel = new javax.swing.JTextField();
         ORPumpACS = new javax.swing.JRadioButton();
         ORPumpOn = new javax.swing.JRadioButton();
@@ -164,10 +164,10 @@ public class JFrameView extends javax.swing.JFrame {
         });
 
         chamber1Table.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-            {"Vessel 1",null,null,null},
-            {"Vessel 2", null,null,null},
-            {"Vessel 3", null, null,null},
-            {"Vessel 4", null, null,null},
+            {"Vessel 1",processController.c1v1Recipe(),null,null},
+            {"Vessel 2", processController.c1v2Recipe(),null,null},
+            {"Vessel 3",processController.c1v3Recipe(), null,null},
+            {"Vessel 4",processController.c1v4Recipe(), null,null},
             {"Heater", null, "-","-"},
             {"Fan", null, "-","-"}},
         new String [] {"Label","State","Temperature","Setpoint"}));
@@ -345,20 +345,30 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     Valve1Group.add(ORValve1ACS);
     ORValve1ACS.setSelected(true);
     ORValve1ACS.setText("ACS");
-    jPanel2.add(ORValve1ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 640, 60, -1));
-
-    Valve1Group.add(ORValve1On);
-    ORValve1On.setText("ON");
-    ORValve1On.addActionListener(new java.awt.event.ActionListener() {
+    ORValve1ACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ORValve1OnActionPerformed(evt);
+            ORValve1ACSActionPerformed(evt);
         }
     });
-    jPanel2.add(ORValve1On, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 660, 50, -1));
+    jPanel2.add(ORValve1ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 640, 60, -1));
 
-    Valve1Group.add(ORValve1Off);
-    ORValve1Off.setText("OFF");
-    jPanel2.add(ORValve1Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 680, 60, -1));
+    Valve1Group.add(ORValve1Open);
+    ORValve1Open.setText("OPEN");
+    ORValve1Open.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve1OpenActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve1Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 660, 70, -1));
+
+    Valve1Group.add(ORValve1Close);
+    ORValve1Close.setText("CLOSE");
+    ORValve1Close.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve1CloseActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve1Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 680, 80, -1));
 
     OverridesLabel.setEditable(false);
     OverridesLabel.setText("OVERRIDES");
@@ -380,42 +390,62 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     Valve2Group.add(ORValve2ACS);
     ORValve2ACS.setSelected(true);
     ORValve2ACS.setText("ACS");
-    jPanel2.add(ORValve2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 60, -1));
-
-    Valve2Group.add(ORValve2On);
-    ORValve2On.setText("ON");
-    ORValve2On.addActionListener(new java.awt.event.ActionListener() {
+    ORValve2ACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ORValve2OnActionPerformed(evt);
+            ORValve2ACSActionPerformed(evt);
         }
     });
-    jPanel2.add(ORValve2On, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 660, 50, -1));
+    jPanel2.add(ORValve2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 60, -1));
 
-    Valve2Group.add(ORValve2Off);
-    ORValve2Off.setText("OFF");
-    jPanel2.add(ORValve2Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 680, 60, -1));
+    Valve2Group.add(ORValve2Open);
+    ORValve2Open.setText("OPEN");
+    ORValve2Open.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve2OpenActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve2Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 660, 70, 30));
+
+    Valve2Group.add(ORValve2Close);
+    ORValve2Close.setText("CLOSE");
+    ORValve2Close.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve2CloseActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve2Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 680, 80, -1));
 
     Valve3ORLabel.setEditable(false);
     Valve3ORLabel.setText("Ice Tank");
-    jPanel2.add(Valve3ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 610, 60, -1));
+    jPanel2.add(Valve3ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 60, -1));
 
     IceTankValveGroup.add(ORValve3ACS);
     ORValve3ACS.setSelected(true);
     ORValve3ACS.setText("ACS");
-    jPanel2.add(ORValve3ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, 60, -1));
-
-    IceTankValveGroup.add(ORValve3On);
-    ORValve3On.setText("ON");
-    ORValve3On.addActionListener(new java.awt.event.ActionListener() {
+    ORValve3ACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ORValve3OnActionPerformed(evt);
+            ORValve3ACSActionPerformed(evt);
         }
     });
-    jPanel2.add(ORValve3On, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 660, 50, -1));
+    jPanel2.add(ORValve3ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 640, 60, -1));
 
-    IceTankValveGroup.add(ORValve3Off);
-    ORValve3Off.setText("OFF");
-    jPanel2.add(ORValve3Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 680, 60, -1));
+    IceTankValveGroup.add(ORValve3Open);
+    ORValve3Open.setText("OPEN");
+    ORValve3Open.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve3OpenActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve3Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 660, 70, -1));
+
+    IceTankValveGroup.add(ORValve3Close);
+    ORValve3Close.setText("CLOSE");
+    ORValve3Close.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORValve3CloseActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORValve3Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 680, 80, -1));
 
     BypassORLabel.setEditable(false);
     BypassORLabel.setText("Bypass");
@@ -424,20 +454,30 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     BypassGroup.add(ORBypassACS);
     ORBypassACS.setSelected(true);
     ORBypassACS.setText("ACS");
-    jPanel2.add(ORBypassACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 640, 60, -1));
-
-    BypassGroup.add(ORBypassOn);
-    ORBypassOn.setText("ON");
-    ORBypassOn.addActionListener(new java.awt.event.ActionListener() {
+    ORBypassACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ORBypassOnActionPerformed(evt);
+            ORBypassACSActionPerformed(evt);
         }
     });
-    jPanel2.add(ORBypassOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 660, 50, -1));
+    jPanel2.add(ORBypassACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 640, 60, -1));
 
-    BypassGroup.add(ORBypassOff);
-    ORBypassOff.setText("OFF");
-    jPanel2.add(ORBypassOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 680, 60, -1));
+    BypassGroup.add(ORBypassOpen);
+    ORBypassOpen.setText("OPEN");
+    ORBypassOpen.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORBypassOpenActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORBypassOpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 660, 70, -1));
+
+    BypassGroup.add(ORBypassClose);
+    ORBypassClose.setText("CLOSE");
+    ORBypassClose.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORBypassCloseActionPerformed(evt);
+        }
+    });
+    jPanel2.add(ORBypassClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 680, 80, -1));
 
     PumpORLabel.setEditable(false);
     PumpORLabel.setText("Pump");
@@ -673,11 +713,6 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
 
     private void ValvesLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValvesLabelActionPerformed
         // Label, does not require implementat
-        
-        
-        
-        
-        
     }//GEN-LAST:event_ValvesLabelActionPerformed
 
     private void SensorLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SensorLabelActionPerformed
@@ -688,21 +723,21 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         // TODO add your handling code here:
     }//GEN-LAST:event_Chamber2TemperatureActionPerformed
 
-    private void ORValve1OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve1OnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ORValve1OnActionPerformed
+    private void ORValve1OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve1OpenActionPerformed
+        processController.setValve1(1);
+    }//GEN-LAST:event_ORValve1OpenActionPerformed
 
-    private void ORValve2OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve2OnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ORValve2OnActionPerformed
+    private void ORValve2OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve2OpenActionPerformed
+        processController.setValve2(1);
+    }//GEN-LAST:event_ORValve2OpenActionPerformed
 
-    private void ORValve3OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve3OnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ORValve3OnActionPerformed
+    private void ORValve3OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve3OpenActionPerformed
+        processController.setValve3(1);
+    }//GEN-LAST:event_ORValve3OpenActionPerformed
 
-    private void ORBypassOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORBypassOnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ORBypassOnActionPerformed
+    private void ORBypassOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORBypassOpenActionPerformed
+        processController.setBypass(1);
+    }//GEN-LAST:event_ORBypassOpenActionPerformed
 
     private void ORPumpOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORPumpOnActionPerformed
         // TODO add your handling code here:
@@ -721,15 +756,15 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     }//GEN-LAST:event_ORFreezerOnActionPerformed
 
     private void ORHeater2OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORHeater2OnActionPerformed
-        // TODO add your handling code here:
+        processController.setHeater2(true);
     }//GEN-LAST:event_ORHeater2OnActionPerformed
 
     private void ORFan2OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFan2OnActionPerformed
-        // TODO add your handling code here:
+        processController.setFan2(true);
     }//GEN-LAST:event_ORFan2OnActionPerformed
 
     private void ORFan1OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFan1OnActionPerformed
-        // TODO add your handling code here:
+        processController.setFan1(true);
     }//GEN-LAST:event_ORFan1OnActionPerformed
 
     private void ORHeater1OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORHeater1OnActionPerformed
@@ -737,11 +772,11 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     }//GEN-LAST:event_ORHeater1OnActionPerformed
 
     private void OverridesLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverridesLabelActionPerformed
-        // TODO add your handling code here:
+        // label... no code
     }//GEN-LAST:event_OverridesLabelActionPerformed
 
     private void Chamber2LabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Chamber2LabelActionPerformed
-        // TODO add your handling code here:
+        // label... no code
     }//GEN-LAST:event_Chamber2LabelActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -771,6 +806,38 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private void ORHeater1OffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORHeater1OffActionPerformed
         processController.setHeater1(false);
     }//GEN-LAST:event_ORHeater1OffActionPerformed
+
+    private void ORValve1CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve1CloseActionPerformed
+        processController.setValve1(2);
+    }//GEN-LAST:event_ORValve1CloseActionPerformed
+
+    private void ORValve2CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve2CloseActionPerformed
+        processController.setValve2(2);
+    }//GEN-LAST:event_ORValve2CloseActionPerformed
+
+    private void ORValve3CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve3CloseActionPerformed
+        processController.setValve3(2);
+    }//GEN-LAST:event_ORValve3CloseActionPerformed
+
+    private void ORBypassCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORBypassCloseActionPerformed
+        processController.setBypass(2);
+    }//GEN-LAST:event_ORBypassCloseActionPerformed
+
+    private void ORValve1ACSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve1ACSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORValve1ACSActionPerformed
+
+    private void ORValve2ACSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve2ACSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORValve2ACSActionPerformed
+
+    private void ORValve3ACSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORValve3ACSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ORValve3ACSActionPerformed
+
+    private void ORBypassACSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORBypassACSActionPerformed
+        processController.setBypass(0);
+    }//GEN-LAST:event_ORBypassACSActionPerformed
     
   
    
@@ -799,8 +866,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private javax.swing.JTextField IceTankORLabel;
     private javax.swing.ButtonGroup IceTankValveGroup;
     private javax.swing.JRadioButton ORBypassACS;
-    private javax.swing.JRadioButton ORBypassOff;
-    private javax.swing.JRadioButton ORBypassOn;
+    private javax.swing.JRadioButton ORBypassClose;
+    private javax.swing.JRadioButton ORBypassOpen;
     private javax.swing.JRadioButton ORChillerACS;
     private javax.swing.JRadioButton ORChillerOff;
     private javax.swing.JRadioButton ORChillerOn;
@@ -826,14 +893,14 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private javax.swing.JRadioButton ORPumpOff;
     private javax.swing.JRadioButton ORPumpOn;
     private javax.swing.JRadioButton ORValve1ACS;
-    private javax.swing.JRadioButton ORValve1Off;
-    private javax.swing.JRadioButton ORValve1On;
+    private javax.swing.JRadioButton ORValve1Close;
+    private javax.swing.JRadioButton ORValve1Open;
     private javax.swing.JRadioButton ORValve2ACS;
-    private javax.swing.JRadioButton ORValve2Off;
-    private javax.swing.JRadioButton ORValve2On;
+    private javax.swing.JRadioButton ORValve2Close;
+    private javax.swing.JRadioButton ORValve2Open;
     private javax.swing.JRadioButton ORValve3ACS;
-    private javax.swing.JRadioButton ORValve3Off;
-    private javax.swing.JRadioButton ORValve3On;
+    private javax.swing.JRadioButton ORValve3Close;
+    private javax.swing.JRadioButton ORValve3Open;
     private javax.swing.JTextField OverridesLabel;
     private javax.swing.ButtonGroup PumpGroup;
     private javax.swing.JTextField PumpORLabel;
