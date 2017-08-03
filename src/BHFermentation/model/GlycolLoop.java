@@ -5,7 +5,6 @@
  */
 package BHFermentation.model;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_08;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_10;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_12;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_13;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_15;
@@ -17,6 +16,7 @@ import static com.pi4j.io.gpio.RaspiPin.GPIO_27;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_29;
 import static com.pi4j.io.gpio.RaspiPin.GPIO_31;
 import static BHFermentation.model.ProcessController.GPIO;
+import static com.pi4j.io.gpio.RaspiPin.GPIO_01;
 
 /**
  *
@@ -43,7 +43,7 @@ public class GlycolLoop {
         sensor = new Sensor();
         pump = new Pump();
         chiller = new Chiller();
-        chamber1 = new Chamber(GPIO_08, GPIO_10);
+        chamber1 = new Chamber(GPIO_08, GPIO_01);
         chamber2 = new Chamber(GPIO_12, GPIO_16);
     }
     

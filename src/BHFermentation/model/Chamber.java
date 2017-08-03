@@ -27,9 +27,9 @@ public class Chamber extends Observable{
      */
     Chamber(Pin fanPin, Pin heaterPin){
         sensor = new Sensor();
-        for(int i = 0; i < 4; i++){
-            vessels[i] = new Vessel();
-        }
+        //for(int i = 0; i < 4; i++){
+          //  vessels[i] = new Vessel();
+        //}
         fan = new Fan(fanPin);
         heater = new Heater(heaterPin);
         temperature = 0;
