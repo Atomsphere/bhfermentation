@@ -4,19 +4,26 @@
  * and open the template in the editor.
  */
 package BHFermentation.model;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_08;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_10;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_12;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_13;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_15;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_16;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_19;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_21;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_23;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_27;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_29;
-import static com.pi4j.io.gpio.RaspiPin.GPIO_31;
-import static BHFermentation.model.ProcessController.GPIO;
+
+//GPIO imports: 29 is free. 15 and 16 reserved TxD and RxD for 1-wire sensor
+//Using pi4j pinout, differs from Broadcom's. more info at
+//http://pi4j.com/images/j8header-b-plus-large.png
+import static com.pi4j.io.gpio.RaspiPin.GPIO_00; //fan 1
+import static com.pi4j.io.gpio.RaspiPin.GPIO_01; //heater 1
+import static com.pi4j.io.gpio.RaspiPin.GPIO_02; //fan 2
+import static com.pi4j.io.gpio.RaspiPin.GPIO_03; //heater 2
+import static com.pi4j.io.gpio.RaspiPin.GPIO_04; //pump
+import static com.pi4j.io.gpio.RaspiPin.GPIO_05; //chiller
+import static com.pi4j.io.gpio.RaspiPin.GPIO_06; //chest freezer
+import static com.pi4j.io.gpio.RaspiPin.GPIO_07; //ice tank
+import static com.pi4j.io.gpio.RaspiPin.GPIO_21; //bypass valve open
+import static com.pi4j.io.gpio.RaspiPin.GPIO_22; //bypass valve close
+import static com.pi4j.io.gpio.RaspiPin.GPIO_23; //chamber 1 valve open
+import static com.pi4j.io.gpio.RaspiPin.GPIO_24; //chamber 1 valve close
+import static com.pi4j.io.gpio.RaspiPin.GPIO_25; //chamber 2 valve open
+import static com.pi4j.io.gpio.RaspiPin.GPIO_26; //chamber 2 valve close
+import static com.pi4j.io.gpio.RaspiPin.GPIO_27; //ice tank valve open
+import static com.pi4j.io.gpio.RaspiPin.GPIO_28; //ice tank valve close
 
 /**
  *
@@ -24,30 +31,40 @@ import static BHFermentation.model.ProcessController.GPIO;
  */
 public class GlycolLoop {
     
-    private final Valve bypassValve, c1Valve, c2Valve, iCValve;
-    private final ChestFreezer chestFreezer;
-    private final Pump pump;
-    private final Chiller chiller;
+    final Valve bypass, c1Valve, c2Valve, iCValve;
+    //final Bypass bypass;
+    final ChestFreezer chestFreezer;
+    final Pump pump;
+    final Chiller chiller;
     final Sensor sensor;
-    public final Chamber chamber1, chamber2;
+    final Chamber chamber1, chamber2;
+    final IceTank iceTank;
     
     /**
-     * constructor same as everything else, pin number to be decided later
+     * Constructs the Glycol Loop subsystem
+     * GPIO pins are ordered in loose organization
      */
     GlycolLoop(){
-        c1Valve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_13), GPIO.provisionDigitalOutputPin(GPIO_15));
-        c2Valve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_19), GPIO.provisionDigitalOutputPin(GPIO_21));
-        iCValve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_23), GPIO.provisionDigitalOutputPin(GPIO_27));
-        bypassValve = new Valve(GPIO.provisionDigitalOutputPin(GPIO_29), GPIO.provisionDigitalOutputPin(GPIO_31));
-        chestFreezer = new ChestFreezer();
+        chamber1 = new Chamber(GPIO_00, GPIO_01);
+        chamber2 = new Chamber(GPIO_02, GPIO_03);
+        
+        pump = new Pump(GPIO_04);
+        chiller = new Chiller(GPIO_05);
+        chestFreezer = new ChestFreezer(GPIO_06);
+        iceTank = new IceTank(GPIO_07);
+        
+        bypass = new Valve(GPIO_21, GPIO_22);
+        c1Valve = new Valve(GPIO_23, GPIO_24);
+        c2Valve = new Valve(GPIO_25, GPIO_26);
+        iCValve = new Valve(GPIO_27, GPIO_28);
+        
         sensor = new Sensor();
-        pump = new Pump();
-        chiller = new Chiller();
-        chamber1 = new Chamber(GPIO_08, GPIO_10);
-        chamber2 = new Chamber(GPIO_12, GPIO_16);
+
     }
     
-    public void setHeatChamber1(boolean state){
-        chamber1.setHeater(state);
+    public void getPressure(){
+        
     }
+    
+    
 }

@@ -12,7 +12,8 @@ import com.pi4j.io.i2c.I2CFactory.UnsupportedBusNumberException;
 import java.io.IOException;
 
 /**
- *
+ * currently unsupported. I don't know of hardware that is going to be on I2C
+ * Maybe the value representing % open of the valves
  * @author Mark
  */
 public class Bus {
@@ -24,12 +25,4 @@ public class Bus {
     Bus()throws IOException, UnsupportedBusNumberException{
         bus = I2CFactory.getInstance(I2CBus.BUS_1);
         }
-    
-    
-    
-   
-    
-        
-        
-    
 }

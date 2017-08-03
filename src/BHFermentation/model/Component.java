@@ -7,6 +7,7 @@ package BHFermentation.model;
 
 
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
+import com.pi4j.io.gpio.PinState;
 
 
 
@@ -30,11 +31,13 @@ public abstract class Component {
      */
     public void setState(boolean state){
         if(state){
-            componentPin.high();
+            componentPin.setState(PinState.HIGH);
         }else{
-            componentPin.low();
+            componentPin.setState(PinState.LOW);
         }
     }
      
-    
+    public boolean getState(){
+        return componentPin.isHigh();
+    }
 }

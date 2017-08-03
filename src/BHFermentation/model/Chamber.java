@@ -6,7 +6,6 @@
 package BHFermentation.model;
 
 import com.pi4j.io.gpio.Pin;
-import java.util.List;
 import java.util.Observable;
 /**
  *
@@ -16,9 +15,9 @@ public class Chamber extends Observable{
     
     public int temperature;
     private final Sensor sensor;
-    private Vessel [] vessels;
-    private final Fan fan;
-    private final Heater heater;
+    Vessel vessel1, vessel2, vessel3, vessel4;
+    final Fan fan;
+    final Heater heater;
     
     /**
      * Should not instantiate a chamber without a fan and a heater
@@ -27,9 +26,9 @@ public class Chamber extends Observable{
      */
     Chamber(Pin fanPin, Pin heaterPin){
         sensor = new Sensor();
-        for(int i = 0; i < 4; i++){
-            vessels[i] = new Vessel();
-        }
+        //for(int i = 0; i < 4; i++){
+          //  vessels[i] = new Vessel();
+        //}
         fan = new Fan(fanPin);
         heater = new Heater(heaterPin);
         temperature = 0;
@@ -39,8 +38,8 @@ public class Chamber extends Observable{
      * gets vessels associated with the chamber
      * @return 
      */
-    public Vessel [] getVessels(){
-        return vessels;
+    public Vessel getVessels(){
+        return vessel1;
     }
     
     public void changeTemperature(){
@@ -60,4 +59,7 @@ public class Chamber extends Observable{
         return temperature;
     }
     
+    public void setFan(boolean state){
+        fan.setState(state);
+    }
 }
