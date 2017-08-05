@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.model;
+package BHFermentation.view;
 
 /**
- * The sensor located on the UI.
- * @author Mark
+ *
+ * @author admin
  */
-public class AmbientUI {
-    //Sensor sensor;
+public class AlternateView extends javax.swing.JFrame{
     
-    AmbientUI(){
-        //sensor = new Sensor();
-    }
+    
 }

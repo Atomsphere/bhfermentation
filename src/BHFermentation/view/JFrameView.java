@@ -164,7 +164,7 @@ public class JFrameView extends javax.swing.JFrame {
         });
 
         chamber1Table.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-            {"Vessel 1",processController.c1v1Recipe(),null,null},
+            {"Vessel 1",processController.c1v1Recipe(),processController.gettemp1(),null},
             {"Vessel 2", processController.c1v2Recipe(),null,null},
             {"Vessel 3",processController.c1v3Recipe(), null,null},
             {"Vessel 4",processController.c1v4Recipe(), null,null},
@@ -340,11 +340,11 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     UnusedSpaceLabel.setText("This is a place holder for more information. ");
     jScrollPane3.setViewportView(UnusedSpaceLabel);
 
-    jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 83, 560, 860));
+    jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 553, 560, 390));
 
     Valve1Group.add(ORValve1ACS);
-    ORValve1ACS.setSelected(true);
     ORValve1ACS.setText("ACS");
+    ORValve1ACS.setEnabled(false);
     ORValve1ACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             ORValve1ACSActionPerformed(evt);
@@ -362,6 +362,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORValve1Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 660, 70, -1));
 
     Valve1Group.add(ORValve1Close);
+    ORValve1Close.setSelected(true);
     ORValve1Close.setText("CLOSE");
     ORValve1Close.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,8 +389,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(Valve2ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 610, 80, -1));
 
     Valve2Group.add(ORValve2ACS);
-    ORValve2ACS.setSelected(true);
     ORValve2ACS.setText("ACS");
+    ORValve2ACS.setEnabled(false);
     ORValve2ACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             ORValve2ACSActionPerformed(evt);
@@ -407,6 +408,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORValve2Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 660, 70, 30));
 
     Valve2Group.add(ORValve2Close);
+    ORValve2Close.setSelected(true);
     ORValve2Close.setText("CLOSE");
     ORValve2Close.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -420,8 +422,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(Valve3ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 60, -1));
 
     IceTankValveGroup.add(ORValve3ACS);
-    ORValve3ACS.setSelected(true);
     ORValve3ACS.setText("ACS");
+    ORValve3ACS.setEnabled(false);
     ORValve3ACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             ORValve3ACSActionPerformed(evt);
@@ -439,6 +441,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORValve3Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 660, 70, -1));
 
     IceTankValveGroup.add(ORValve3Close);
+    ORValve3Close.setSelected(true);
     ORValve3Close.setText("CLOSE");
     ORValve3Close.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,7 +455,6 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(BypassORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 610, 80, -1));
 
     BypassGroup.add(ORBypassACS);
-    ORBypassACS.setSelected(true);
     ORBypassACS.setText("ACS");
     ORBypassACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,6 +473,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORBypassOpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 660, 70, -1));
 
     BypassGroup.add(ORBypassClose);
+    ORBypassClose.setSelected(true);
     ORBypassClose.setText("CLOSE");
     ORBypassClose.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -484,8 +487,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(PumpORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 80, -1));
 
     PumpGroup.add(ORPumpACS);
-    ORPumpACS.setSelected(true);
     ORPumpACS.setText("ACS");
+    ORPumpACS.setEnabled(false);
     jPanel2.add(ORPumpACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, 60, -1));
 
     PumpGroup.add(ORPumpOn);
@@ -498,11 +501,23 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORPumpOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 50, -1));
 
     PumpGroup.add(ORPumpOff);
+    ORPumpOff.setSelected(true);
     ORPumpOff.setText("OFF");
+    ORPumpOff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORPumpOffActionPerformed(evt);
+        }
+    });
     jPanel2.add(ORPumpOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 60, -1));
 
     ChillerGroup.add(ORChillerOff);
+    ORChillerOff.setSelected(true);
     ORChillerOff.setText("OFF");
+    ORChillerOff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORChillerOffActionPerformed(evt);
+        }
+    });
     jPanel2.add(ORChillerOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 60, -1));
 
     ChillerGroup.add(ORChillerOn);
@@ -515,8 +530,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORChillerOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 50, -1));
 
     ChillerGroup.add(ORChillerACS);
-    ORChillerACS.setSelected(true);
     ORChillerACS.setText("ACS");
+    ORChillerACS.setEnabled(false);
     jPanel2.add(ORChillerACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, 60, -1));
 
     ChillerORLabel.setEditable(false);
@@ -528,8 +543,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(IceTankORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 60, -1));
 
     IceTankGroup.add(ORIceTankACS);
-    ORIceTankACS.setSelected(true);
     ORIceTankACS.setText("ACS");
+    ORIceTankACS.setEnabled(false);
     jPanel2.add(ORIceTankACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 60, -1));
 
     IceTankGroup.add(ORIceTankOn);
@@ -542,11 +557,23 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORIceTankOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 50, -1));
 
     IceTankGroup.add(ORIceTankOff);
+    ORIceTankOff.setSelected(true);
     ORIceTankOff.setText("OFF");
+    ORIceTankOff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORIceTankOffActionPerformed(evt);
+        }
+    });
     jPanel2.add(ORIceTankOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 60, -1));
 
     ChestFreezerGroup.add(ORFreezerOff);
+    ORFreezerOff.setSelected(true);
     ORFreezerOff.setText("OFF");
+    ORFreezerOff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORFreezerOffActionPerformed(evt);
+        }
+    });
     jPanel2.add(ORFreezerOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, 60, -1));
 
     ChestFreezerGroup.add(ORFreezerOn);
@@ -559,8 +586,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORFreezerOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, 50, -1));
 
     ChestFreezerGroup.add(ORFreezerACS);
-    ORFreezerACS.setSelected(true);
     ORFreezerACS.setText("ACS");
+    ORFreezerACS.setEnabled(false);
     jPanel2.add(ORFreezerACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, 60, -1));
 
     FreezerORLabel.setEditable(false);
@@ -572,8 +599,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(Heater2ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, 80, -1));
 
     Heater2Group.add(ORHeater2ACS);
-    ORHeater2ACS.setSelected(true);
     ORHeater2ACS.setText("ACS");
+    ORHeater2ACS.setEnabled(false);
     jPanel2.add(ORHeater2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 60, -1));
 
     Heater2Group.add(ORHeater2On);
@@ -586,11 +613,23 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORHeater2On, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 50, -1));
 
     Heater2Group.add(ORHeater2Off);
+    ORHeater2Off.setSelected(true);
     ORHeater2Off.setText("OFF");
+    ORHeater2Off.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORHeater2OffActionPerformed(evt);
+        }
+    });
     jPanel2.add(ORHeater2Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 60, -1));
 
     Fan2Group.add(ORFan2Off);
+    ORFan2Off.setSelected(true);
     ORFan2Off.setText("OFF");
+    ORFan2Off.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORFan2OffActionPerformed(evt);
+        }
+    });
     jPanel2.add(ORFan2Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 60, -1));
 
     Fan2Group.add(ORFan2On);
@@ -603,8 +642,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORFan2On, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 50, -1));
 
     Fan2Group.add(ORFan2ACS);
-    ORFan2ACS.setSelected(true);
     ORFan2ACS.setText("ACS");
+    ORFan2ACS.setEnabled(false);
     jPanel2.add(ORFan2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 60, -1));
 
     Fan2ORLabel.setEditable(false);
@@ -620,8 +659,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(Fan1ORLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 80, -1));
 
     Fan1Group.add(ORFan1ACS);
-    ORFan1ACS.setSelected(true);
     ORFan1ACS.setText("ACS");
+    ORFan1ACS.setEnabled(false);
     jPanel2.add(ORFan1ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 60, -1));
 
     Fan1Group.add(ORFan1On);
@@ -634,10 +673,17 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORFan1On, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 50, -1));
 
     Fan1Group.add(ORFan1Off);
+    ORFan1Off.setSelected(true);
     ORFan1Off.setText("OFF");
+    ORFan1Off.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ORFan1OffActionPerformed(evt);
+        }
+    });
     jPanel2.add(ORFan1Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 60, -1));
 
     Heater1Group.add(ORHeater1Off);
+    ORHeater1Off.setSelected(true);
     ORHeater1Off.setText("OFF");
     ORHeater1Off.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,8 +702,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORHeater1On, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 50, -1));
 
     Heater1Group.add(ORHeater1ACS);
-    ORHeater1ACS.setSelected(true);
     ORHeater1ACS.setText("ACS");
+    ORHeater1ACS.setEnabled(false);
     ORHeater1ACS.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             ORHeater1ACSActionPerformed(evt);
@@ -740,19 +786,19 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     }//GEN-LAST:event_ORBypassOpenActionPerformed
 
     private void ORPumpOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORPumpOnActionPerformed
-        // TODO add your handling code here:
+        processController.setPump(true);
     }//GEN-LAST:event_ORPumpOnActionPerformed
 
     private void ORChillerOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORChillerOnActionPerformed
-        // TODO add your handling code here:
+        processController.setChiller(true);
     }//GEN-LAST:event_ORChillerOnActionPerformed
 
     private void ORIceTankOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORIceTankOnActionPerformed
-        // TODO add your handling code here:
+        processController.setIce(true);
     }//GEN-LAST:event_ORIceTankOnActionPerformed
 
     private void ORFreezerOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFreezerOnActionPerformed
-        // TODO add your handling code here:
+        processController.setChestFreezer(true);
     }//GEN-LAST:event_ORFreezerOnActionPerformed
 
     private void ORHeater2OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORHeater2OnActionPerformed
@@ -838,6 +884,34 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private void ORBypassACSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORBypassACSActionPerformed
         processController.setBypass(0);
     }//GEN-LAST:event_ORBypassACSActionPerformed
+
+    private void ORHeater2OffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORHeater2OffActionPerformed
+        processController.setHeater2(false);
+    }//GEN-LAST:event_ORHeater2OffActionPerformed
+
+    private void ORFan1OffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFan1OffActionPerformed
+        processController.setFan1(false);
+    }//GEN-LAST:event_ORFan1OffActionPerformed
+
+    private void ORFan2OffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFan2OffActionPerformed
+        processController.setFan2(false);
+    }//GEN-LAST:event_ORFan2OffActionPerformed
+
+    private void ORPumpOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORPumpOffActionPerformed
+        processController.setPump(false);
+    }//GEN-LAST:event_ORPumpOffActionPerformed
+
+    private void ORChillerOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORChillerOffActionPerformed
+        processController.setChiller(false);
+    }//GEN-LAST:event_ORChillerOffActionPerformed
+
+    private void ORIceTankOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORIceTankOffActionPerformed
+        processController.setIce(false);
+    }//GEN-LAST:event_ORIceTankOffActionPerformed
+
+    private void ORFreezerOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORFreezerOffActionPerformed
+        processController.setChestFreezer(false);
+    }//GEN-LAST:event_ORFreezerOffActionPerformed
     
   
    
@@ -913,7 +987,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private javax.swing.JTextField Valve2ORLabel;
     private javax.swing.JTextField Valve3ORLabel;
     private javax.swing.JTextField ValvesLabel;
-    private javax.swing.JTable chamber1Table;
+    public javax.swing.JTable chamber1Table;
     private javax.swing.JTable chamber2Table;
     private javax.swing.JTable componentsTable;
     private javax.swing.JCheckBox jCheckBox1;

@@ -11,14 +11,15 @@ package BHFermentation.model;
  */
 public class Vessel {
     
-    private final Sensor sensor;
+    //private final Sensor sensor;
     private boolean state = false; //active or ready
-    private String recipe = "-";
+    private String recipe;
     int setPoint;
     
     public Vessel(){
+        this.recipe = "-";
         this.setPoint = 68;
-        sensor = new Sensor();
+        //sensor = new Sensor();
     }
     public boolean getstate(){
         return this.state;

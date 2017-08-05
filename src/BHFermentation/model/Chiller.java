@@ -13,10 +13,10 @@ import com.pi4j.io.gpio.Pin;
  * @author Mark
  */
 public class Chiller extends Component {
-    private final Sensor sensor;
+    //private final Sensor sensor;
     
     Chiller(Pin pin){
        componentPin = GPIO.provisionDigitalOutputPin(pin, "Chiller", PinState.LOW);
-       sensor = new Sensor();
+       //sensor = new Sensor();
     }
 }

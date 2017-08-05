@@ -14,15 +14,11 @@ import com.pi4j.io.gpio.Pin;
  * @author Mark
  */
 public class ChestFreezer extends Component{
-    private final Sensor sensor1, sensor2;
+    //private final Sensor sensor1, sensor2;
     
     ChestFreezer(Pin pin){
     componentPin = GPIO.provisionDigitalOutputPin(pin, "Chest Freezer", PinState.HIGH);
-    sensor1 = new Sensor();
-    sensor2 = new Sensor();
+    //sensor1 = new Sensor();
+    //sensor2 = new Sensor();
     }
-    
-    private Sensor chestFreezer;
-    
-    
 }

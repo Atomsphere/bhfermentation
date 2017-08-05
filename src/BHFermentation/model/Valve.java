@@ -22,7 +22,7 @@ public class Valve {
     static int closedCount = 4;
     Valve(Pin open, Pin close){
         this.open = GPIO.provisionDigitalOutputPin(open, "Valve Open", PinState.LOW);
-        this.close = GPIO.provisionDigitalOutputPin(close, "Valve Close", PinState.LOW);
+        this.close = GPIO.provisionDigitalOutputPin(close, "Valve Close", PinState.HIGH);
         
     }
     
