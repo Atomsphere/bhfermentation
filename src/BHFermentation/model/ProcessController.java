@@ -101,6 +101,14 @@ public class ProcessController {
         glycolLoop.chestFreezer.setState(state);
     }
     
+    public void setChiller(boolean state){
+        glycolLoop.chiller.setState(state);
+    }
+    
+    public void setIce(boolean state){
+        //glycolLoop.iceTank.setState(state);
+    }
+    
     public void setPump(boolean state){
         if(glycolLoop.bypass.getCount() < 4){
             setBypass(1);
@@ -162,5 +170,10 @@ public class ProcessController {
     
     public String c1v4Recipe(){
         return glycolLoop.chamber1.vessel4.getRecipe();
+    }
+    
+    public double gettemp1(){
+        
+        return glycolLoop.getTemp1();
     }
 }

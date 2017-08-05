@@ -14,7 +14,7 @@ import java.util.Observable;
 public class Chamber extends Observable{
     
     public int temperature;
-    private final Sensor sensor;
+    //private final Sensor sensor;
     Vessel vessel1, vessel2, vessel3, vessel4;
     final Fan fan;
     final Heater heater;
@@ -25,13 +25,17 @@ public class Chamber extends Observable{
      * @param heaterPin 
      */
     Chamber(Pin fanPin, Pin heaterPin){
-        sensor = new Sensor();
+        //sensor = new Sensor();
         //for(int i = 0; i < 4; i++){
           //  vessels[i] = new Vessel();
         //}
         fan = new Fan(fanPin);
         heater = new Heater(heaterPin);
         temperature = 0;
+        vessel1 = new Vessel();
+        vessel2 = new Vessel();
+        vessel3 = new Vessel();
+        vessel4 = new Vessel();
     }
     
     /**

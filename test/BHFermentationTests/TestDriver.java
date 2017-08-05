@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BHFermentation.model;
+package BHFermentationTests;
 
-import org.junit.*;
+import BHFermentation.model.PIDunit;
+import BHFermentation.model.ProcessController;
+import org.junit.Test;
+
+
 
 /**
  *  As of yet unsure which classes need to be targeted for testing

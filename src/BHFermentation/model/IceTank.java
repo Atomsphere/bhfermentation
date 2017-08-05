@@ -14,9 +14,9 @@ import com.pi4j.io.gpio.Pin;
  * @author Mark
  */
 public class IceTank extends Component{
-    private final Sensor sensor;
+    //private final Sensor sensor;
     IceTank(Pin pin){//GPIO number to be determined later
        componentPin = GPIO.provisionDigitalOutputPin(pin, "Ice Tank", PinState.LOW);
-       sensor = new Sensor();
+       //sensor = new Sensor();
     }
 }
