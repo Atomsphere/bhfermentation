@@ -5,8 +5,7 @@
  */
 package BHFermentationTests;
 
-
-import BHFermentation.model.ProcessController;
+import BHFermentation.model.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -51,6 +50,37 @@ public class TestDriver {
         assertEquals("Result: false. Fan 2 should be set to true.", "On", testPC.getFan2State());
     } 
 
+    @Test
+    public void valveCCTest1()
+    {
+        ProcessController testPC = new ProcessController();
+        testPC.setValve1(0);
+        assertEquals("cc does not equal 4", 4, testPC.getCC());
+    }
+    
+    @Test
+    public void valve1Test1()
+    {
+        ProcessController testPC = new ProcessController();
+        testPC.setValve1(1);
+        assertEquals("cc does not equal 3", 3, testPC.getCC());
+    }
+    
+    @Test
+    public void valve2Test1()
+    {
+        ProcessController testPC = new ProcessController();
+        testPC.setValve2(1);
+        assertEquals("cc does not equal 2", 2, testPC.getCC());
+    }
+    
+    @Test
+    public void valve3Test1()
+    {
+        ProcessController testPC = new ProcessController();
+        testPC.setValve3(1);
+        assertEquals("cc does not equal 1", 1, testPC.getCC());
+    }
     
     }
     
