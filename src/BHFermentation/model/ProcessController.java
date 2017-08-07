@@ -69,6 +69,12 @@ public class ProcessController {
         else return "off";
     }
     
+    public int getCC()
+    {
+        return glycolLoop.bypass.getCount();
+    }
+  
+    
     public void setValve1(int state){
         int cc = glycolLoop.c1Valve.valveControl(state);
         if(cc > 2 && glycolLoop.bypass.getState() && glycolLoop.bypass.getACS())
