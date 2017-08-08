@@ -224,7 +224,7 @@
                 <Component class="javax.swing.JTable" name="chamber1Table">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.table.DefaultTableModel( new Object [][] {&#xa;    {&quot;Vessel 1&quot;,processController.c1v1Recipe(),processController.gettemp1(),null},&#xa;    {&quot;Vessel 2&quot;, processController.c1v2Recipe(),null,null},&#xa;    {&quot;Vessel 3&quot;,processController.c1v3Recipe(), null,null},&#xa;    {&quot;Vessel 4&quot;,processController.c1v4Recipe(), null,null},&#xa;    {&quot;Heater&quot;, null, &quot;-&quot;,&quot;-&quot;},&#xa;    {&quot;Fan&quot;, null, &quot;-&quot;,&quot;-&quot;}},&#xa;new String [] {&quot;Label&quot;,&quot;State&quot;,&quot;Temperature&quot;,&quot;Setpoint&quot;})" type="code"/>
+                      <Connection code="new javax.swing.table.DefaultTableModel(new Object [][]{&#xa;    {&quot;Vessel 1&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[0]},&#xa;    {&quot;Vessel 2&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[1]},&#xa;    {&quot;Vessel 3&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[2]},&#xa;    {&quot;Vessel 4&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[3]},&#xa;    {&quot;Heater&quot;, &quot;-&quot;, &quot;-&quot;,&quot;-&quot;},&#xa;    {&quot;Fan&quot;, &quot;-&quot;, &quot;-&quot;,&quot;-&quot;}},&#xa;new String[]{&quot;Label&quot;, &quot;State&quot;, &quot;Temperature&quot;, &quot;Setpoint&quot;})" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
@@ -237,8 +237,10 @@
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="chamber1TablePropertyChange"/>
                   </Events>
                   <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new javax.swing.JTable()"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="chamber1Table.getSelectionModel().addListSelectionListener(new Chamber1Listener());&#xd;&#xa;"/>
                     <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="JFrameView_chamber1Table"/>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
