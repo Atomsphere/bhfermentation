@@ -5,10 +5,14 @@
  */
 package BHFermentation.model;
 
+import BHFermentation.view.JFrameView;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import static java.util.concurrent.TimeUnit.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -17,14 +21,50 @@ import java.util.List;
 public class ProcessController {
 
     static GpioController GPIO;
-    private static  GlycolLoop glycolLoop;
+    static  GlycolLoop glycolLoop;
+    public double temp[];
+    public double setPoint[]; //c1v1..c1v4..c2v1...c2v4...CF...IT t.f. size = 10
     
+    private final ScheduledExecutorService scheduler =
+       Executors.newScheduledThreadPool(1);
     /**
      *  default constructor
      */
     public ProcessController(){
         GPIO = GpioFactory.getInstance();
         glycolLoop = new GlycolLoop();
+        temp = new double[2];
+        setPoint = new double[10];
+        temp[0] = glycolLoop.getTemp1();
+        temp[1] = glycolLoop.getTemp2();
+        tenSecond();
+    }
+    
+    
+
+    private void tenSecond() {
+        final Runnable timer = this::updateTemps;
+        final ScheduledFuture<?> updateHandle =
+            scheduler.scheduleAtFixedRate(timer, 10, 10, SECONDS);
+        scheduler.schedule(() -> {
+            updateHandle.cancel(true);
+        }, 60 * 60, SECONDS);
+        
+        
+        
+    }
+    
+    public void updateTemps(){
+        temp[0] = glycolLoop.getTemp1();
+        temp[1] = glycolLoop.getTemp2();
+        JFrameView.chamber1Table.setValueAt(temp[0], 0, 2);
+        JFrameView.chamber1Table.setValueAt(temp[1], 1, 2);
+        JFrameView.chamber1Table.setValueAt(temp[0], 2, 2);
+        JFrameView.chamber1Table.setValueAt(temp[1], 3, 2);
+    }
+    
+    public void updateSetPoints(int index, double value){
+        setPoint[index] = value;
     }
     
     public void setHeater1(boolean state){
@@ -110,7 +150,7 @@ public class ProcessController {
     }
     
     public void setPump(boolean state){
-        if(glycolLoop.bypass.getCount() < 4){
+        if(glycolLoop.bypass.getCount() == 4){
             setBypass(1);
         }
         glycolLoop.pump.setState(state);

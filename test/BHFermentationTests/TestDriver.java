@@ -5,9 +5,12 @@
  */
 package BHFermentationTests;
 
-import BHFermentation.model.PIDunit;
+
 import BHFermentation.model.ProcessController;
 import org.junit.Test;
+import static org.junit.Assert.*;
+
+
 
 
 
@@ -18,21 +21,39 @@ import org.junit.Test;
 public class TestDriver {
     
     @Test
-    public void processControllerTest()
+    public void heater1Test()
     {
         ProcessController testPC = new ProcessController();
-        
-        // Test cases here
+        testPC.setHeater1(true);
+        assertEquals("Result: false. Heater 1 should be set to true.", "On", testPC.getHeater1State());
     }
     
     @Test
-    public void PIDUnitTest()
+    public void heater2Test()
     {
-        PIDunit testPID = new PIDunit();
-        
-        // Test cases here
-     
+        ProcessController testPC = new ProcessController();
+        testPC.setHeater2(true);
+        assertEquals("Result: false. Heater 2 should be set to true.", "On", testPC.getHeater2State());
     }
     
+    @Test
+    public void fan1Test()
+    {
+        ProcessController testPC = new ProcessController();
+        testPC.setFan1(true);
+        assertEquals("Result: false. Fan 1 should be set to true.", "On", testPC.getFan1State());
+    } 
+    
+    @Test
+    public void fan2Test()
+    {
+        ProcessController testPC = new ProcessController();
+        testPC.setFan2(true);
+        assertEquals("Result: false. Fan 2 should be set to true.", "On", testPC.getFan2State());
+    } 
+
+    
+    }
+    
+   
  
-}

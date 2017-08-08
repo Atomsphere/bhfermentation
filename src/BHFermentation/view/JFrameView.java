@@ -6,13 +6,15 @@
 package BHFermentation.view;
 
 import BHFermentation.model.ProcessController;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
  * @author Mitchell
  */
 public class JFrameView extends javax.swing.JFrame {
-    private static ProcessController processController;
+    static ProcessController processController;
     /**
      * Creates new form JFrameView
      */
@@ -51,7 +53,7 @@ public class JFrameView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Chamber1Label = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        chamber1Table = new javax.swing.JTable();
+        chamber1Table =  new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         String c2V1 = "Inactive";
         String c2V2 = "Inactive";
@@ -163,14 +165,15 @@ public class JFrameView extends javax.swing.JFrame {
             }
         });
 
-        chamber1Table.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-            {"Vessel 1",processController.c1v1Recipe(),processController.gettemp1(),null},
-            {"Vessel 2", processController.c1v2Recipe(),null,null},
-            {"Vessel 3",processController.c1v3Recipe(), null,null},
-            {"Vessel 4",processController.c1v4Recipe(), null,null},
-            {"Heater", null, "-","-"},
-            {"Fan", null, "-","-"}},
-        new String [] {"Label","State","Temperature","Setpoint"}));
+        chamber1Table.setModel(new javax.swing.table.DefaultTableModel(new Object [][]{
+            {"Vessel 1","-",processController.temp[0],processController.setPoint[0]},
+            {"Vessel 2","-",processController.temp[1],processController.setPoint[1]},
+            {"Vessel 3","-",processController.temp[0],processController.setPoint[2]},
+            {"Vessel 4","-",processController.temp[1],processController.setPoint[3]},
+            {"Heater", "-", "-","-"},
+            {"Fan", "-", "-","-"}},
+        new String[]{"Label", "State", "Temperature", "Setpoint"}));
+chamber1Table.getSelectionModel().addListSelectionListener(new Chamber1Listener());
 chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
     public void propertyChange(java.beans.PropertyChangeEvent evt) {
         chamber1TablePropertyChange(evt);
@@ -913,7 +916,13 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         processController.setChestFreezer(false);
     }//GEN-LAST:event_ORFreezerOffActionPerformed
     
-  
+    private static class Chamber1Listener implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            chamber1Table.repaint();
+        }
+}
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -987,7 +996,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private javax.swing.JTextField Valve2ORLabel;
     private javax.swing.JTextField Valve3ORLabel;
     private javax.swing.JTextField ValvesLabel;
-    public javax.swing.JTable chamber1Table;
+    public static javax.swing.JTable chamber1Table;
     private javax.swing.JTable chamber2Table;
     private javax.swing.JTable componentsTable;
     private javax.swing.JCheckBox jCheckBox1;

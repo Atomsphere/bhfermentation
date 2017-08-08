@@ -31,6 +31,7 @@ import com.pi4j.io.w1.W1Master;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author Mark
@@ -75,6 +76,10 @@ public class GlycolLoop {
     public double getTemp1(){
         return sensor1.getTemperature();
         
+    }
+    
+    public double getTemp2(){
+        return sensor2.getTemperature();
     }
     
 }
