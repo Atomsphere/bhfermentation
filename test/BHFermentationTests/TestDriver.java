@@ -7,6 +7,7 @@ package BHFermentationTests;
 
 
 import BHFermentation.model.ProcessController;
+import junit.framework.TestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,10 +19,9 @@ import static org.junit.Assert.*;
  *  As of yet unsure which classes need to be targeted for testing
  * @author Lane M
  */
-public class TestDriver {
-    
-    
-    ProcessController testPC = new ProcessController();
+public class TestDriver extends TestCase
+{
+    private static final ProcessController testPC = new ProcessController();
     
     @Test
     public void heater1Test()
