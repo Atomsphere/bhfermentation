@@ -80,4 +80,9 @@ public class Vessel extends Observable{
     public String getRecipe(){
         return recipe;
     }
+    
+    public int getSetPoint()
+    {
+        return setPoint;
+    }
 }
