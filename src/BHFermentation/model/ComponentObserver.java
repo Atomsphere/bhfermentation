@@ -44,7 +44,12 @@ public class ComponentObserver implements Observer {
         
         if(state ^ component.getState()){
             state = component.getState();
-            JFrameView.processController.updateData(Boolean.toString(state), row, col, tableID);
+            if(state){
+                JFrameView.processController.updateData("on", row, col, tableID);
+            }else{
+                JFrameView.processController.updateData("off", row, col, tableID);
+            }
+            
         }
     }
     

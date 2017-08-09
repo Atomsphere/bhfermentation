@@ -37,8 +37,8 @@ public class Chamber{
         v2 = new VesselObserver(vessel2, ID);
         v3 = new VesselObserver(vessel3, ID);
         v4 = new VesselObserver(vessel4, ID);
-        heaterO = new ComponentObserver(heater, 4, 2, ID);
-        fanO = new ComponentObserver(fan, 5, 2, ID);
+        heaterO = new ComponentObserver(heater, 4, 1, ID);
+        fanO = new ComponentObserver(fan, 5, 1, ID);
         
     }
     

@@ -161,9 +161,9 @@ public class JFrameView extends javax.swing.JFrame {
             {"Vessel 2","-",processController.temp[1],processController.setPoint[1]},
             {"Vessel 3","-",processController.temp[0],processController.setPoint[2]},
             {"Vessel 4","-",processController.temp[1],processController.setPoint[3]},
-            {"Heater", "-", "-","-"},
-            {"Fan", "-", "-","-"}},
-        new String[]{"Label", "Recipe", "Temperature", "Setpoint"}));
+            {"Heater", "off", "-","-"},
+            {"Fan", "off", "-","-"}},
+        new String[]{"Label", "State", "Temperature", "Setpoint"}));
 chamber1Table.getSelectionModel().addListSelectionListener(new Chamber1Listener());
 chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
     public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -177,8 +177,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         {"Vessel 2","-",processController.temp[0],processController.setPoint[5]},
         {"Vessel 3","-",processController.temp[1],processController.setPoint[6]},
         {"Vessel 4","-",processController.temp[1],processController.setPoint[7]},
-        {"Heater", null, null, null},
-        {"Fan", null, null, null}},
+        {"Heater","off", null, null},
+        {"Fan","off", null, null}},
     new String [] {"Label","State","Temperature","Setpoint"}));
     chamber2Table.getSelectionModel().addListSelectionListener(new Chamber2Listener());
     chamber2Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -189,10 +189,10 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jScrollPane4.setViewportView(chamber2Table);
 
     componentsTable.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-        {"Pump",null},
-        {"Chiller", null},
-        {"Ice Tank", null},
-        {"Freezer", null}},
+        {"Pump","off"},
+        {"Chiller","off"},
+        {"Ice Tank","N/A"},
+        {"Freezer","on"}},
     new String [] {"Label","State"}));
     componentsTable.getSelectionModel().addListSelectionListener(new ComponentsListener());
     jScrollPane5.setViewportView(componentsTable);
@@ -248,10 +248,10 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     });
 
     valveTable.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-        {"Chamber 1",null,null},
-        {"Chamber 2", null,null},
-        {"Ice Tank", null, null},
-        {"Bypass", null, null}},
+        {"Chamber 1","off","on"},
+        {"Chamber 2","off","on"},
+        {"Ice Tank","off","on"},
+        {"Bypass","off","on"}},
     new String [] {"Label","Open","Close"}));
     valveTable.getSelectionModel().addListSelectionListener(new ValveListener());
     jScrollPane8.setViewportView(valveTable);
@@ -565,7 +565,6 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORIceTankOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 60, -1));
 
     ChestFreezerGroup.add(ORFreezerOff);
-    ORFreezerOff.setSelected(true);
     ORFreezerOff.setText("OFF");
     ORFreezerOff.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,6 +574,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jPanel2.add(ORFreezerOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, 60, -1));
 
     ChestFreezerGroup.add(ORFreezerOn);
+    ORFreezerOn.setSelected(true);
     ORFreezerOn.setText("ON");
     ORFreezerOn.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
