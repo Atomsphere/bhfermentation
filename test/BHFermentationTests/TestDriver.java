@@ -81,6 +81,103 @@ public class TestDriver extends TestCase
         assertEquals("cc does not equal 1", 1, testPC.getCC());
     }
     
+    @Test
+    public void vessel1C1Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel1Chamber1(activity, recipe, setPoint);
+        
+        assertEquals("c1v1 Recipe does not match", "Stout", testPC.c1v1Recipe());
+    }
+    
+    @Test
+    public void vessel2C1Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel2Chamber1(activity, recipe, setPoint);
+        
+        assertEquals("c1v2 Recipe does not match", "Stout", testPC.c1v2Recipe());
+    }
+    
+    @Test
+    public void vessel3C1Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel3Chamber1(activity, recipe, setPoint);
+        
+        assertEquals("c1v3 Recipe does not match", "Stout", testPC.c1v3Recipe());
+    }
+    
+    @Test
+    public void vessel4C1Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel4Chamber1(activity, recipe, setPoint);
+        
+        assertEquals("c1v4 Recipe does not match", "Stout", testPC.c1v4Recipe());
+    }
+    
+    @Test
+    public void vessel1C2Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel1Chamber2(activity, recipe, setPoint);
+        
+        assertEquals("c2v1 Recipe does not match", "Stout", testPC.c2v1Recipe());
+    }
+    
+    @Test
+    public void vessel2C2Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel2Chamber2(activity, recipe, setPoint);
+        
+        assertEquals("c2v2 Recipe does not match", "Stout", testPC.c2v2Recipe());
+    }
+
+    @Test
+    public void vessel3C2Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel3Chamber2(activity, recipe, setPoint);
+        
+        assertEquals("c2v3 Recipe does not match", "Stout", testPC.c2v3Recipe());
+    }  
+    
+    @Test
+    public void vessel4C2Test()
+    {
+        String recipe = "Stout";
+        boolean activity = true;
+        int setPoint = 50;
+        
+        testPC.setVessel4Chamber2(activity, recipe, setPoint);
+        
+        assertEquals("c2v4 Recipe does not match", "Stout", testPC.c2v4Recipe());
+    } 
+    
+    
     }
     
    
