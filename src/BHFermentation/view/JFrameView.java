@@ -394,7 +394,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
             ORValve2ACSActionPerformed(evt);
         }
     });
-    jPanel2.add(ORValve2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 60, -1));
+    jPanel2.add(ORValve2ACS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 60, 20));
 
     Valve2Group.add(ORValve2Open);
     ORValve2Open.setText("OPEN");
@@ -403,7 +403,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
             ORValve2OpenActionPerformed(evt);
         }
     });
-    jPanel2.add(ORValve2Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 660, 70, 30));
+    jPanel2.add(ORValve2Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 660, 70, 20));
 
     Valve2Group.add(ORValve2Close);
     ORValve2Close.setSelected(true);
@@ -965,6 +965,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
             sensorsTable.repaint();
         }
     }
+    
+   
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

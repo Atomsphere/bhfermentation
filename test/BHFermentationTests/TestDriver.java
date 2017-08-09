@@ -65,7 +65,10 @@ public class TestDriver extends TestCase
      */
     public void test1ValveCC()
     {
-        testPC.setValve1(0);
+        testPC.setValve1(2);
+        testPC.setValve2(2);
+        testPC.setValve3(2);
+        testPC.setBypass(2);
         assertEquals("cc does not equal 4", 4, testPC.getCC());
     }
     
@@ -74,6 +77,10 @@ public class TestDriver extends TestCase
     */
     public void test1Valve1()
     {
+        testPC.setValve1(2);
+        testPC.setValve2(2);
+        testPC.setValve3(2);
+        testPC.setBypass(2);
         testPC.setValve1(1);
         assertEquals("cc does not equal 3", 3, testPC.getCC());
     }
@@ -83,6 +90,11 @@ public class TestDriver extends TestCase
      */
     public void test1Valve2()
     {
+        testPC.setValve1(2);
+        testPC.setValve2(2);
+        testPC.setValve3(2);
+        testPC.setBypass(2);
+        testPC.setValve1(1);
         testPC.setValve2(1);
         assertEquals("cc does not equal 2", 2, testPC.getCC());
     }
@@ -92,6 +104,12 @@ public class TestDriver extends TestCase
      */
     public void test1Valve3()
     {
+        testPC.setValve1(2);
+        testPC.setValve2(2);
+        testPC.setValve3(2);
+        testPC.setBypass(2);
+        testPC.setValve1(1);
+        testPC.setValve2(1);
         testPC.setValve3(1);
         assertEquals("cc does not equal 1", 1, testPC.getCC());
     }
@@ -103,14 +121,12 @@ public class TestDriver extends TestCase
     */
     
     /**
-     * tests bypass, sets bypass to true, checks against the state
+     * tests bypass, sets bypass open to true, checks against close, should be false
      */
     public void testBypass()
     {
-        int state = 1;
-        
-        testPC.setBypass(state);
-        assertEquals("Bypass has incorrect state", true, testPC.getBypassState());
+        testPC.setBypass(1);
+        assertEquals("Bypass has incorrect state", false, testPC.getBypassState());
     }
 
     /**
@@ -126,7 +142,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c1v1 Recipe does not match", "Stout", testPC.c1v1Recipe());
         assertEquals("c1v1 Activity does not match", true, testPC.c1v1Activity());
-        assertEquals("c1v1 Set Point does not match", 50, testPC.c1v1SetPoint());
+        assertEquals("c1v1 Set Point does not match", 50.0, testPC.c1v1SetPoint());
     }
     
     /**
@@ -142,7 +158,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c1v2 Recipe does not match", "Stout", testPC.c1v2Recipe());
         assertEquals("c1v2 Activity does not match", true, testPC.c1v2Activity());
-        assertEquals("c1v2 Set Point does not match", 50, testPC.c1v2SetPoint());
+        assertEquals("c1v2 Set Point does not match", 50.0, testPC.c1v2SetPoint());
     }
     
     /**
@@ -158,7 +174,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c1v3 Recipe does not match", "Stout", testPC.c1v3Recipe());
         assertEquals("c1v3 Activity does not match", true, testPC.c1v3Activity());
-        assertEquals("c1v3 Set Point does not match", 50, testPC.c1v3SetPoint());
+        assertEquals("c1v3 Set Point does not match", 50.0, testPC.c1v3SetPoint());
     }
     
     /**
@@ -174,7 +190,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c1v4 Recipe does not match", "Stout", testPC.c1v4Recipe());
         assertEquals("c1v4 Activity does not match", true, testPC.c1v4Activity());
-        assertEquals("c1v4 Set Point does not match", 50, testPC.c1v4SetPoint());
+        assertEquals("c1v4 Set Point does not match", 50.0, testPC.c1v4SetPoint());
     }
     
     /**
@@ -190,7 +206,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c2v1 Recipe does not match", "Stout", testPC.c2v1Recipe());
         assertEquals("c2v1 Activity does not match", true, testPC.c2v1Activity());
-        assertEquals("c2v1 Set Point does not match", 50, testPC.c2v1SetPoint());
+        assertEquals("c2v1 Set Point does not match", 50.0, testPC.c2v1SetPoint());
     }
     
     /**
@@ -206,7 +222,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c2v2 Recipe does not match", "Stout", testPC.c2v2Recipe());
         assertEquals("c2v2 Activity does not match", true, testPC.c2v2Activity());
-        assertEquals("c2v2 Set Point does not match", 50, testPC.c2v2SetPoint());
+        assertEquals("c2v2 Set Point does not match", 50.0, testPC.c2v2SetPoint());
     }
 
     /**
@@ -222,7 +238,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c2v3 Recipe does not match", "Stout", testPC.c2v3Recipe());
         assertEquals("c2v3 Activity does not match", true, testPC.c2v3Activity());
-        assertEquals("c2v3 Set Point does not match", 50, testPC.c2v3SetPoint());
+        assertEquals("c2v3 Set Point does not match", 50.0, testPC.c2v3SetPoint());
     }  
     
    /**
@@ -238,7 +254,7 @@ public class TestDriver extends TestCase
         
         assertEquals("c2v4 Recipe does not match", "Stout", testPC.c2v4Recipe());
         assertEquals("c2v4 Activity does not match", true, testPC.c2v4Activity());
-        assertEquals("c2v4 Set Point does not match", 50, testPC.c2v4SetPoint());
+        assertEquals("c2v4 Set Point does not match", 50.0, testPC.c2v4SetPoint());
     } 
     
     /**
