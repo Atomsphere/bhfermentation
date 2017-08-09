@@ -13,7 +13,7 @@ import static BHFermentation.model.ProcessController.GPIO;
 
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
 public class Fan extends Component{
     Fan(Pin fanPin){//GPIO number to be determined later

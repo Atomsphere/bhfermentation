@@ -10,7 +10,7 @@ import com.pi4j.io.gpio.Pin;
 
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
 public class Chiller extends Component {
     //private final Sensor sensor;

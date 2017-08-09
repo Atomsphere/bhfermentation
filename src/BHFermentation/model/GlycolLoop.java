@@ -34,15 +34,16 @@ import java.util.List;
 
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
 public class GlycolLoop {
     
     final Valve bypass, c1Valve, c2Valve, iCValve;
-    //final Bypass bypass;
+    ValveObserver c1O, c2O, icO, bypassO;
     final ChestFreezer chestFreezer;
     final Pump pump;
     final Chiller chiller;
+    ComponentObserver chestFreezerO, pumpO, chillerO;
     final TemperatureSensor sensor1, sensor2;
     W1Master w1Master;
     final Chamber chamber1, chamber2;
@@ -58,18 +59,25 @@ public class GlycolLoop {
         this.sensors = w1Master.getDevices();
         sensor1 = (TemperatureSensor) sensors.get(0);
         sensor2 = (TemperatureSensor) sensors.get(1);
-        this.chamber1 = new Chamber(GPIO_00, GPIO_01);
-        this.chamber2 = new Chamber(GPIO_02, GPIO_03);
+        this.chamber1 = new Chamber(GPIO_00, GPIO_01, 0);
+        this.chamber2 = new Chamber(GPIO_02, GPIO_03, 1);
         
         this.pump = new Pump(GPIO_29);
         this.chiller = new Chiller(GPIO_05);
         this.chestFreezer = new ChestFreezer(GPIO_06);
         //this.iceTank = new IceTank(GPIO_07);
+        chestFreezerO = new ComponentObserver(chestFreezer, 3, 1, 2);
+        pumpO = new ComponentObserver(pump, 0, 1, 2);
+        chillerO = new ComponentObserver(chiller, 1, 1, 2);
         
         this.bypass = new Valve(GPIO_21, GPIO_22);
         this.c1Valve = new Valve(GPIO_23, GPIO_24);
         this.c2Valve = new Valve(GPIO_25, GPIO_26);
         this.iCValve = new Valve(GPIO_27, GPIO_28);
+        this.c1O = new ValveObserver(c1Valve, 0);
+        this.c2O = new ValveObserver(c2Valve, 1);
+        this.icO = new ValveObserver(iCValve, 2);
+        this.bypassO = new ValveObserver(bypass, 3);
         
     }
     

@@ -5,33 +5,48 @@
  */
 package BHFermentation.model;
 
+import java.util.Observable;
+
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
-public class Vessel {
+public class Vessel extends Observable{
     
-    //private final Sensor sensor;
     private boolean state = false; //active or ready
     private String recipe;
-    int setPoint;
+    double setPoint;
+    int ID;
+    int chamberID;
     
-    public Vessel(){
+    public Vessel(int ID){
         this.recipe = "-";
         this.setPoint = 68;
-        //sensor = new Sensor();
+        this.ID = ID;
     }
     public boolean getstate(){
         return this.state;
     }
     
+    public double getSetpoint(){
+        return setPoint;
+    }
+    
+    public int getID(){
+        return ID;
+    }
+    
     public void setState(boolean state, String recipe){
         this.state = state;
         this.recipe = recipe;
+        setChanged();
+        notifyObservers();
     }
     
     public void updateSetPoint(int setPoint){
         this.setPoint = setPoint;
+        setChanged();
+        notifyObservers();
     }
     
     public String getRecipe(){

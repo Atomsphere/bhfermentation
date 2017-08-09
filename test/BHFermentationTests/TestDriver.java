@@ -7,8 +7,8 @@ package BHFermentationTests;
 
 
 import BHFermentation.model.ProcessController;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import org.junit.Before;
 
 
 
@@ -17,43 +17,44 @@ import static org.junit.Assert.*;
 /**
  *  As of yet unsure which classes need to be targeted for testing
  * @author Lane M
+ * @author Mark Maupin
  */
-public class TestDriver {
+public class TestDriver extends TestCase{
+    private static final ProcessController testPC = new ProcessController();
+   
+   
     
-    @Test
-    public void heater1Test()
+    public void testHeater1()
+    
     {
-        ProcessController testPC = new ProcessController();
+        
         testPC.setHeater1(true);
         assertEquals("Result: false. Heater 1 should be set to true.", "On", testPC.getHeater1State());
     }
     
-    @Test
-    public void heater2Test()
+    public void testHeater2()
     {
-        ProcessController testPC = new ProcessController();
+        
         testPC.setHeater2(true);
         assertEquals("Result: false. Heater 2 should be set to true.", "On", testPC.getHeater2State());
     }
     
-    @Test
-    public void fan1Test()
+    public void testFan1()
     {
-        ProcessController testPC = new ProcessController();
+        
         testPC.setFan1(true);
         assertEquals("Result: false. Fan 1 should be set to true.", "On", testPC.getFan1State());
     } 
     
-    @Test
-    public void fan2Test()
+    public void testFan2()
     {
-        ProcessController testPC = new ProcessController();
+        
         testPC.setFan2(true);
         assertEquals("Result: false. Fan 2 should be set to true.", "On", testPC.getFan2State());
     } 
 
     
-    }
+}
     
    
  

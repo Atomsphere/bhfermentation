@@ -9,13 +9,14 @@ import static BHFermentation.model.ProcessController.GPIO;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
+import java.util.Observable;
 
 /**
  * Valve provides methods for opening and closing valves
  * needs logic from I2C for current percentage
- * @author Mark
+ * @author Mark Maupin
  */
-public class Valve {
+public class Valve extends Observable{
     private final GpioPinDigitalOutput open;
     private final GpioPinDigitalOutput close;
     boolean acs = true;
@@ -37,6 +38,8 @@ public class Valve {
         }
 
         open.setState(PinState.HIGH);
+        setChanged();
+        notifyObservers();
     }
     
     /**
@@ -50,6 +53,8 @@ public class Valve {
         }
         
         close.setState(PinState.HIGH);
+        setChanged();
+        notifyObservers();
     }
     
     /**
@@ -68,17 +73,19 @@ public class Valve {
             case 1:
                 Open();
                 ACS(false);
+                
                 return closedCount;
             case 2:
                 Close();
                 ACS(false);
+                
                 return closedCount;
             default:
                 return closedCount;
         }
     }
     
-    private void ACS(boolean state){
+    void ACS(boolean state){
         this.acs = state;
     }
     

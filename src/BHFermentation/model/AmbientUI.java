@@ -7,7 +7,7 @@ package BHFermentation.model;
 
 /**
  * The sensor located on the UI.
- * @author Mark
+ * @author Mark Maupin
  */
 public class AmbientUI {
     //Sensor sensor;

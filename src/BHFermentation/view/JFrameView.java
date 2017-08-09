@@ -12,14 +12,15 @@ import javax.swing.event.ListSelectionListener;
 /**
  *
  * @author Mitchell
+ * @author Mark Maupin
  */
 public class JFrameView extends javax.swing.JFrame {
-    static ProcessController processController;
+    public static ProcessController processController;
     /**
      * Creates new form JFrameView
      */
     public JFrameView() {
-        JFrameView.processController = new ProcessController();
+        processController = new ProcessController();
         
         initComponents();
     }
@@ -55,14 +56,6 @@ public class JFrameView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         chamber1Table =  new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        String c2V1 = "Inactive";
-        String c2V2 = "Inactive";
-        String c2V3 = "Inactive";
-        String c2V4 = "Inactive";
-        int c2V1Temp = -200;
-        int c2V2Temp = -200;
-        int c2V3Temp = -200;
-        int c2V4Temp = -200;
         chamber2Table = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         componentsTable = new javax.swing.JTable();
@@ -74,7 +67,7 @@ public class JFrameView extends javax.swing.JFrame {
         sensorsTable = new javax.swing.JTable();
         SensorLabel = new javax.swing.JTextField();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        valveTable = new javax.swing.JTable();
         ValvesLabel = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -172,7 +165,7 @@ public class JFrameView extends javax.swing.JFrame {
             {"Vessel 4","-",processController.temp[1],processController.setPoint[3]},
             {"Heater", "-", "-","-"},
             {"Fan", "-", "-","-"}},
-        new String[]{"Label", "State", "Temperature", "Setpoint"}));
+        new String[]{"Label", "Recipe", "Temperature", "Setpoint"}));
 chamber1Table.getSelectionModel().addListSelectionListener(new Chamber1Listener());
 chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
     public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -182,13 +175,14 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     jScrollPane1.setViewportView(chamber1Table);
 
     chamber2Table.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
-        {"Vessel 1",c2V1,c2V1Temp + "\u00B0"},
-        {"Vessel 2",c2V2,c2V2Temp + "\u00B0"},
-        {"Vessel 3",c2V3,c2V3Temp + "\u00B0"},
-        {"Vessel 4",c2V4,c2V4Temp + "\u00B0"},
-        {"Heater", null, null},
-        {"Fan", null, "-"}},
-    new String [] {"Label","State","Temperature"}));
+        {"Vessel 1","-",processController.temp[0],processController.setPoint[4]},
+        {"Vessel 2","-",processController.temp[0],processController.setPoint[5]},
+        {"Vessel 3","-",processController.temp[1],processController.setPoint[6]},
+        {"Vessel 4","-",processController.temp[1],processController.setPoint[7]},
+        {"Heater", null, null, null},
+        {"Fan", null, null, null}},
+    new String [] {"Label","State","Temperature","Setpoint"}));
+    chamber2Table.getSelectionModel().addListSelectionListener(new Chamber2Listener());
     chamber2Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
         public void propertyChange(java.beans.PropertyChangeEvent evt) {
             chamber2TablePropertyChange(evt);
@@ -202,6 +196,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         {"Ice Tank", null},
         {"Freezer", null}},
     new String [] {"Label","State"}));
+    componentsTable.getSelectionModel().addListSelectionListener(new ComponentsListener());
     jScrollPane5.setViewportView(componentsTable);
 
     Chamber1Temperature.setEditable(false);
@@ -243,6 +238,7 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         {"Glycol", null},
         {"Ambient", null}},
     new String [] {"Label","Temperature"}));
+    sensorsTable.getSelectionModel().addListSelectionListener(new SensorListener());
     jScrollPane6.setViewportView(sensorsTable);
 
     SensorLabel.setEditable(false);
@@ -253,13 +249,14 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         }
     });
 
-    jTable4.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
+    valveTable.setModel(new javax.swing.table.DefaultTableModel( new Object [][] {
         {"Chamber 1",null,null},
         {"Chamber 2", null,null},
         {"Ice Tank", null, null},
         {"Bypass", null, null}},
-    new String [] {"Label","State","Position"}));
-    jScrollPane8.setViewportView(jTable4);
+    new String [] {"Label","Open","Close"}));
+    valveTable.getSelectionModel().addListSelectionListener(new ValveListener());
+    jScrollPane8.setViewportView(valveTable);
 
     ValvesLabel.setEditable(false);
     ValvesLabel.setText("Valves");
@@ -922,7 +919,39 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         public void valueChanged(ListSelectionEvent e) {
             chamber1Table.repaint();
         }
-}
+    }
+    
+    private static class Chamber2Listener implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            chamber2Table.repaint();
+        }
+    }
+    
+    private static class ComponentsListener implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            componentsTable.repaint();
+        }
+    }
+    
+    private static class ValveListener implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            valveTable.repaint();
+        }
+    }
+    
+    private static class SensorListener implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            sensorsTable.repaint();
+        }
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -997,8 +1026,8 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private javax.swing.JTextField Valve3ORLabel;
     private javax.swing.JTextField ValvesLabel;
     public static javax.swing.JTable chamber1Table;
-    private javax.swing.JTable chamber2Table;
-    private javax.swing.JTable componentsTable;
+    public static javax.swing.JTable chamber2Table;
+    public static javax.swing.JTable componentsTable;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -1014,13 +1043,13 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private java.awt.Label label1;
-    private javax.swing.JTable sensorsTable;
+    public static javax.swing.JTable sensorsTable;
+    public static javax.swing.JTable valveTable;
     // End of variables declaration//GEN-END:variables
 }

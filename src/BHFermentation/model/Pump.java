@@ -12,7 +12,7 @@ import com.pi4j.io.gpio.Pin;
 
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
 public class Pump extends Component{
     Pump(Pin pin){

@@ -12,7 +12,7 @@ import static BHFermentation.model.ProcessController.GPIO;
 
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
 public class Heater extends Component {
     

@@ -10,7 +10,7 @@ import BHFermentation.view.JFrameView;
 
 /**
  *
- * @author admin
+ * @author Mark Maupin
  */
 public class Driver {
     

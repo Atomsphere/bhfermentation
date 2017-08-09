@@ -8,14 +8,15 @@ package BHFermentation.model;
 
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.PinState;
+import java.util.Observable;
 
 
 
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
-public abstract class Component {
+public abstract class Component extends Observable{
     
     GpioPinDigitalOutput componentPin;
     
@@ -35,6 +36,8 @@ public abstract class Component {
         }else{
             componentPin.setState(PinState.LOW);
         }
+        setChanged();
+        notifyObservers();
     }
      
     public boolean getState(){

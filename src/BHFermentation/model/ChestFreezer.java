@@ -11,7 +11,7 @@ import com.pi4j.io.gpio.Pin;
 
 /**
  *
- * @author Mark
+ * @author Mark Maupin
  */
 public class ChestFreezer extends Component{
     //private final Sensor sensor1, sensor2;
