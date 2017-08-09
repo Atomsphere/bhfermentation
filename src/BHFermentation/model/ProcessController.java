@@ -211,7 +211,7 @@ public class ProcessController {
     }
  
     /*
-    added more getter functions
+    added more getter functions ******getters for testing******
     @author Lane M
     */
     

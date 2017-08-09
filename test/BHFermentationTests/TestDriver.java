@@ -8,8 +8,6 @@ package BHFermentationTests;
 
 import BHFermentation.model.ProcessController;
 import junit.framework.TestCase;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 
@@ -18,18 +16,16 @@ import static org.junit.Assert.*;
 /**
  *  As of yet unsure which classes need to be targeted for testing
  * @author Lane M
+ * @author Mark Maupin 
  */
 public class TestDriver extends TestCase
 {
     private static final ProcessController testPC = new ProcessController();
     
-    /*
-    These methods test that the heater components are functioning properly
-    it turns them on and checks their state
-    @author Lane M
-    */
-    @Test
-    public void heater1Test()
+    /**
+     * tests heater1, sets heater state, checks against it
+     */
+    public void testHeater1()
     {
         
         testPC.setHeater1(true);
@@ -37,62 +33,65 @@ public class TestDriver extends TestCase
       
     }
     
-    @Test
-    public void heater2Test()
+    /**
+     * tests heater2, sets heater state, checks against it
+     */
+    public void testHeater2()
     {
         testPC.setHeater2(true);
         assertEquals("Result: false. Heater 2 should be set to true.", "On", testPC.getHeater2State());
     }
-    
-    
-    /*
-    These methods test that the fan components are functioning properly
-    it turns them on and checks their state
-    @author Lane M
-    */    
-    @Test
-    public void fan1Test()
+        
+    /**
+     * tests fan1,  sets fan state, checks against it
+     */
+    public void testfan1()
     {
         testPC.setFan1(true);
         assertEquals("Result: false. Fan 1 should be set to true.", "On", testPC.getFan1State());
     } 
     
-    @Test
-    public void fan2Test()
+    /**
+     * tests fan2,  sets fan state, checks against it
+     */
+    public void testfan2()
     {
         testPC.setFan2(true);
         assertEquals("Result: false. Fan 2 should be set to true.", "On", testPC.getFan2State());
     } 
 
-    /*
-    These methods test that the valve components are functioning properly
-    sets the states to open and checks that they open and that the closedCount 
-    variable is static for all valves
-    @author Lane M
-    */    
-    @Test
-    public void valveCCTest1()
+    
+    /**
+     * tests valve1 CC value. passes if getCC returns expected result
+     */
+    public void test1ValveCC()
     {
         testPC.setValve1(0);
         assertEquals("cc does not equal 4", 4, testPC.getCC());
     }
     
-    @Test
-    public void valve1Test1()
+   /**
+    * tests valve1 CC value, passes if getCC returns expected result
+    */
+    public void test1Valve1()
     {
         testPC.setValve1(1);
         assertEquals("cc does not equal 3", 3, testPC.getCC());
     }
     
-    @Test
-    public void valve2Test1()
+    /**
+     * tests valve2 CC value, passes if getCC returns expected result
+     */
+    public void test1Valve2()
     {
         testPC.setValve2(1);
         assertEquals("cc does not equal 2", 2, testPC.getCC());
     }
     
-    @Test
-    public void valve3Test1()
+    /**
+     * tests valve 3 CC value, passes if getCC returns expected result
+     */
+    public void test1Valve3()
     {
         testPC.setValve3(1);
         assertEquals("cc does not equal 1", 1, testPC.getCC());
@@ -104,8 +103,10 @@ public class TestDriver extends TestCase
     @author Lane M
     */
     
-    @Test
-    public void bypassTest()
+    /**
+     * tests bypass, sets bypass to true, checks against the state
+     */
+    public void testBypass()
     {
         int state = 1;
         
@@ -113,15 +114,10 @@ public class TestDriver extends TestCase
         assertEquals("Bypass has incorrect state", true, testPC.getBypassState());
     }
 
-
-    /*
-    These methods test that the vessel components are functioning properly
-    it passes each vessel a recipe, activity, and setPoint
-    then it checks to make sure the information is correct
-    @author Lane M
-    */    
-    @Test
-    public void vessel1C1Test()
+    /**
+     * tests vessel1 in chamber 1, sets default values, checks against those values
+     */
+    public void testVessel1C1()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -134,8 +130,10 @@ public class TestDriver extends TestCase
         assertEquals("c1v1 Set Point does not match", 50, testPC.c1v1SetPoint());
     }
     
-    @Test
-    public void vessel2C1Test()
+    /**
+     * tests vessel 2 in chamber 1, sets default values, checks against those values
+     */
+    public void testVessel2C1()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -148,8 +146,10 @@ public class TestDriver extends TestCase
         assertEquals("c1v2 Set Point does not match", 50, testPC.c1v2SetPoint());
     }
     
-    @Test
-    public void vessel3C1Test()
+    /**
+     * tests vessel 3 in chamber 1, sets default values, checks against those values
+     */
+    public void testVessel3C1()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -162,8 +162,10 @@ public class TestDriver extends TestCase
         assertEquals("c1v3 Set Point does not match", 50, testPC.c1v3SetPoint());
     }
     
-    @Test
-    public void vessel4C1Test()
+    /**
+     * tests vessel 4 in chamber 1, sets default values, checks against those values
+     */
+    public void testVessel4C1()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -176,8 +178,10 @@ public class TestDriver extends TestCase
         assertEquals("c1v4 Set Point does not match", 50, testPC.c1v4SetPoint());
     }
     
-    @Test
-    public void vessel1C2Test()
+    /**
+     * tests vessel 1 in chamber 2, sets default values, checks against those values
+     */
+    public void testVessel1C2()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -190,8 +194,10 @@ public class TestDriver extends TestCase
         assertEquals("c2v1 Set Point does not match", 50, testPC.c2v1SetPoint());
     }
     
-    @Test
-    public void vessel2C2Test()
+    /**
+     * tests vessel 2 in chamber 2, sets default values, checks against those values
+     */
+    public void testVessel2C2()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -204,8 +210,10 @@ public class TestDriver extends TestCase
         assertEquals("c2v2 Set Point does not match", 50, testPC.c2v2SetPoint());
     }
 
-    @Test
-    public void vessel3C2Test()
+    /**
+     * tests vessel 3 in chamber 2, sets default values, checks against those values
+     */
+    public void testVessel3C2()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -218,8 +226,10 @@ public class TestDriver extends TestCase
         assertEquals("c2v3 Set Point does not match", 50, testPC.c2v3SetPoint());
     }  
     
-    @Test
-    public void vessel4C2Test()
+   /**
+    * tests vessel 4 in chamber 2, sets default values, checks against those values
+    */
+    public void testVessel4C2()
     {
         String recipe = "Stout";
         boolean activity = true;
@@ -231,15 +241,11 @@ public class TestDriver extends TestCase
         assertEquals("c2v4 Activity does not match", true, testPC.c2v4Activity());
         assertEquals("c2v4 Set Point does not match", 50, testPC.c2v4SetPoint());
     } 
-
-
-    /*
-    These methods test that the chest freezer and chiller components are functioning properly
-    it turns them on and then checks to make sure they are on
-    @author Lane M
-    */    
-    @Test
-    public void chestFreezerTest()
+    
+    /**
+     * tests ChestFreezer, sets state, checks again the state
+     */
+    public void testChestFreezer()
     {
         boolean state = true;
         
@@ -247,8 +253,10 @@ public class TestDriver extends TestCase
         assertEquals("Chest Freezer has incorrect state.", true, testPC.getChestFreezerState());
     }
     
-    @Test
-    public void chillerTest()
+    /**
+     * tests Chiller, sets state, checks against the state
+     */
+    public void testChiller()
     {
         boolean state = true;
         
@@ -256,7 +264,7 @@ public class TestDriver extends TestCase
         assertEquals("Chiller has incorrect state.", true, testPC.getChillerState());
     }
     
-    }
+}
     
    
  
