@@ -53,6 +53,34 @@ public class TestDriver {
     } 
 
     
+    @Test
+    public void valveCCTest1()
+    {
+        testPC.setValve1(0);
+        assertEquals("cc does not equal 4", 4, testPC.getCC());
+    }
+    
+    @Test
+    public void valve1Test1()
+    {
+        testPC.setValve1(1);
+        assertEquals("cc does not equal 3", 3, testPC.getCC());
+    }
+    
+    @Test
+    public void valve2Test1()
+    {
+        testPC.setValve2(1);
+        assertEquals("cc does not equal 2", 2, testPC.getCC());
+    }
+    
+    @Test
+    public void valve3Test1()
+    {
+        testPC.setValve3(1);
+        assertEquals("cc does not equal 1", 1, testPC.getCC());
+    }
+    
     }
     
    
