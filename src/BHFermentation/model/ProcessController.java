@@ -216,4 +216,9 @@ public class ProcessController {
         
         return glycolLoop.getTemp1();
     }
+    
+    public int getCC()
+    {
+        return glycolLoop.bypass.getCount();
+    }
 }
