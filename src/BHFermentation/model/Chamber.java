@@ -1,41 +1,45 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
 import com.pi4j.io.gpio.Pin;
-import java.util.Observable;
 /**
- *
- * @author Mark
+ * Chamber object holds everything that is directly associated with a chamber
+ * @author Mark Maupin
  */
-public class Chamber extends Observable{
+public class Chamber{
     
     public int temperature;
     //private final Sensor sensor;
     Vessel vessel1, vessel2, vessel3, vessel4;
+    VesselObserver v1, v2, v3, v4;
     final Fan fan;
     final Heater heater;
+    ComponentObserver fanO, heaterO;
+    int ID;
     
     /**
      * Should not instantiate a chamber without a fan and a heater
      * @param fanPin
      * @param heaterPin 
      */
-    Chamber(Pin fanPin, Pin heaterPin){
-        //sensor = new Sensor();
-        //for(int i = 0; i < 4; i++){
-          //  vessels[i] = new Vessel();
-        //}
+    Chamber(Pin fanPin, Pin heaterPin, int ID){
+        this.ID = ID;
         fan = new Fan(fanPin);
         heater = new Heater(heaterPin);
         temperature = 0;
-        vessel1 = new Vessel();
-        vessel2 = new Vessel();
-        vessel3 = new Vessel();
-        vessel4 = new Vessel();
+        vessel1 = new Vessel(0 + 4 * ID);
+        vessel2 = new Vessel(1 + 4 * ID);
+        vessel3 = new Vessel(2 + 4 * ID);
+        vessel4 = new Vessel(3 + 4 * ID);
+        v1 = new VesselObserver(vessel1, ID);
+        v2 = new VesselObserver(vessel2, ID);
+        v3 = new VesselObserver(vessel3, ID);
+        v4 = new VesselObserver(vessel4, ID);
+        heaterO = new ComponentObserver(heater, 4, 2, ID);
+        fanO = new ComponentObserver(fan, 5, 2, ID);
+        
     }
     
     /**
@@ -46,15 +50,7 @@ public class Chamber extends Observable{
         return vessel1;
     }
     
-    public void changeTemperature(){
-        for (int i = 0; i <100; i++){
-            temperature++;
-            setChanged();
-            notifyObservers();
-        }
         
-    }
-    
     public void setHeater(boolean state){
         heater.setState(state);
     }

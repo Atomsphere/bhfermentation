@@ -50,7 +50,7 @@ public class TestDriver extends TestCase
         testPC.setFan1(true);
         assertEquals("Result: false. Fan 1 should be set to true.", "On", testPC.getFan1State());
     } 
-    
+
     /**
      * tests fan2,  sets fan state, checks against it
      */
@@ -60,7 +60,6 @@ public class TestDriver extends TestCase
         assertEquals("Result: false. Fan 2 should be set to true.", "On", testPC.getFan2State());
     } 
 
-    
     /**
      * tests valve1 CC value. passes if getCC returns expected result
      */

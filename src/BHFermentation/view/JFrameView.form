@@ -224,7 +224,7 @@
                 <Component class="javax.swing.JTable" name="chamber1Table">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.table.DefaultTableModel(new Object [][]{&#xa;    {&quot;Vessel 1&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[0]},&#xa;    {&quot;Vessel 2&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[1]},&#xa;    {&quot;Vessel 3&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[2]},&#xa;    {&quot;Vessel 4&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[3]},&#xa;    {&quot;Heater&quot;, &quot;-&quot;, &quot;-&quot;,&quot;-&quot;},&#xa;    {&quot;Fan&quot;, &quot;-&quot;, &quot;-&quot;,&quot;-&quot;}},&#xa;new String[]{&quot;Label&quot;, &quot;State&quot;, &quot;Temperature&quot;, &quot;Setpoint&quot;})" type="code"/>
+                      <Connection code="new javax.swing.table.DefaultTableModel(new Object [][]{&#xa;    {&quot;Vessel 1&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[0]},&#xa;    {&quot;Vessel 2&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[1]},&#xa;    {&quot;Vessel 3&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[2]},&#xa;    {&quot;Vessel 4&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[3]},&#xa;    {&quot;Heater&quot;, &quot;-&quot;, &quot;-&quot;,&quot;-&quot;},&#xa;    {&quot;Fan&quot;, &quot;-&quot;, &quot;-&quot;,&quot;-&quot;}},&#xa;new String[]{&quot;Label&quot;, &quot;Recipe&quot;, &quot;Temperature&quot;, &quot;Setpoint&quot;})" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
@@ -238,7 +238,7 @@
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new javax.swing.JTable()"/>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="chamber1Table.getSelectionModel().addListSelectionListener(new Chamber1Listener());&#xd;&#xa;"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="chamber1Table.getSelectionModel().addListSelectionListener(new Chamber1Listener());"/>
                     <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="JFrameView_chamber1Table"/>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -255,7 +255,7 @@
                 <Component class="javax.swing.JTable" name="chamber2Table">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.table.DefaultTableModel( new Object [][] {&#xa;    {&quot;Vessel 1&quot;,c2V1,c2V1Temp + &quot;\u00B0&quot;},&#xa;    {&quot;Vessel 2&quot;,c2V2,c2V2Temp + &quot;\u00B0&quot;},&#xa;    {&quot;Vessel 3&quot;,c2V3,c2V3Temp + &quot;\u00B0&quot;},&#xa;    {&quot;Vessel 4&quot;,c2V4,c2V4Temp + &quot;\u00B0&quot;},&#xa;    {&quot;Heater&quot;, null, null},&#xa;    {&quot;Fan&quot;, null, &quot;-&quot;}},&#xa;new String [] {&quot;Label&quot;,&quot;State&quot;,&quot;Temperature&quot;})" type="code"/>
+                      <Connection code="new javax.swing.table.DefaultTableModel( new Object [][] {&#xa;    {&quot;Vessel 1&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[4]},&#xa;    {&quot;Vessel 2&quot;,&quot;-&quot;,processController.temp[0],processController.setPoint[5]},&#xa;    {&quot;Vessel 3&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[6]},&#xa;    {&quot;Vessel 4&quot;,&quot;-&quot;,processController.temp[1],processController.setPoint[7]},&#xa;    {&quot;Heater&quot;, null, null, null},&#xa;    {&quot;Fan&quot;, null, null, null}},&#xa;new String [] {&quot;Label&quot;,&quot;State&quot;,&quot;Temperature&quot;,&quot;Setpoint&quot;})" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
@@ -268,7 +268,8 @@
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="chamber2TablePropertyChange"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="String c2V1 = &quot;Inactive&quot;;&#xa;String c2V2 = &quot;Inactive&quot;;&#xa;String c2V3 = &quot;Inactive&quot;;&#xa;String c2V4 = &quot;Inactive&quot;;&#xa;int c2V1Temp = -200;&#xa;int c2V2Temp = -200;&#xa;int c2V3Temp = -200;&#xa;int c2V4Temp = -200;"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="chamber2Table.getSelectionModel().addListSelectionListener(new Chamber2Listener());"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -292,6 +293,10 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="componentsTable.getSelectionModel().addListSelectionListener(new ComponentsListener());"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -350,6 +355,10 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="sensorsTable.getSelectionModel().addListSelectionListener(new SensorListener());"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -369,10 +378,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable4">
+                <Component class="javax.swing.JTable" name="valveTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.table.DefaultTableModel( new Object [][] {&#xa;    {&quot;Chamber 1&quot;,null,null},&#xa;    {&quot;Chamber 2&quot;, null,null},&#xa;    {&quot;Ice Tank&quot;, null, null},&#xa;    {&quot;Bypass&quot;, null, null}},&#xa;new String [] {&quot;Label&quot;,&quot;State&quot;,&quot;Position&quot;})" type="code"/>
+                      <Connection code="new javax.swing.table.DefaultTableModel( new Object [][] {&#xa;    {&quot;Chamber 1&quot;,null,null},&#xa;    {&quot;Chamber 2&quot;, null,null},&#xa;    {&quot;Ice Tank&quot;, null, null},&#xa;    {&quot;Bypass&quot;, null, null}},&#xa;new String [] {&quot;Label&quot;,&quot;Open&quot;,&quot;Close&quot;})" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
@@ -381,6 +390,10 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="valveTable.getSelectionModel().addListSelectionListener(new ValveListener());"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

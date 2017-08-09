@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
@@ -9,13 +7,14 @@ import static BHFermentation.model.ProcessController.GPIO;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
+import java.util.Observable;
 
 /**
  * Valve provides methods for opening and closing valves
  * needs logic from I2C for current percentage
- * @author Mark
+ * @author Mark Maupin
  */
-public class Valve {
+public class Valve extends Observable{
     private final GpioPinDigitalOutput open;
     private final GpioPinDigitalOutput close;
     boolean acs = true;
@@ -37,6 +36,8 @@ public class Valve {
         }
 
         open.setState(PinState.HIGH);
+        setChanged();
+        notifyObservers();
     }
     
     /**
@@ -50,6 +51,8 @@ public class Valve {
         }
         
         close.setState(PinState.HIGH);
+        setChanged();
+        notifyObservers();
     }
     
     /**
@@ -68,28 +71,46 @@ public class Valve {
             case 1:
                 Open();
                 ACS(false);
+                
                 return closedCount;
             case 2:
                 Close();
                 ACS(false);
+                
                 return closedCount;
             default:
                 return closedCount;
         }
     }
     
-    private void ACS(boolean state){
+    /**
+     * setter for the ACS flag
+     * @param state 
+     */
+    void ACS(boolean state){
         this.acs = state;
     }
     
+    /**
+     * getter for the state of valve
+     * @return true if close is energized
+     */
     public boolean getState(){
         return close.isHigh();
     }
     
+    /**
+     * getter for closed count
+     * @return number of closed valves in the system
+     */
     public int getCount(){
         return closedCount;
     }
     
+    /**
+     * getter for acs
+     * @return true if ACS is active for a valve
+     */
     public boolean getACS(){
         return acs;
     }
