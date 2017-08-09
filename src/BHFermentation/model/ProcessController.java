@@ -89,9 +89,9 @@ public class ProcessController {
     /**
      * Allows setpoints to be updated
      * sends update to view
-     * @parm value
-     * @param row
-     * @param value 
+     * @parm value value to be displayed
+     * @param row row associated with a table
+     * @param col column associated a table
      * @param tableID 0 =chamber1, 1 =chamber2, 2 =components, 3 =valves, 4 =sensors
      */
     public void updateData(String value, int row, int col, int tableID){
@@ -117,7 +117,7 @@ public class ProcessController {
     
     /**
      * Sets heater 1's state on/off
-     * @param state 
+     * @param state on/off
      */
     public void setHeater1(boolean state){
         glycolLoop.chamber1.heater.setState(state);
@@ -136,7 +136,7 @@ public class ProcessController {
     
     /**
      * setter for heater 2
-     * @param state
+     * @param state on/off
      */
     public void setHeater2(boolean state){
         glycolLoop.chamber2.heater.setState(state);
@@ -155,7 +155,7 @@ public class ProcessController {
     
     /**
      * setter for fan 1
-     * @param state 
+     * @param state on/off
      */
     public void setFan1(boolean state){
         glycolLoop.chamber1.fan.setState(state);
@@ -173,7 +173,7 @@ public class ProcessController {
     
     /**
      * setter for fan 2
-     * @param state 
+     * @param state on/off
      */
     public void setFan2(boolean state){
         glycolLoop.chamber2.fan.setState(state);
@@ -236,7 +236,7 @@ public class ProcessController {
 
     /**
      * setter for the chest freezer
-     * @param state 
+     * @param state on/off
      */
     public void setChestFreezer(boolean state){
         glycolLoop.chestFreezer.setState(state);
@@ -244,7 +244,7 @@ public class ProcessController {
     
     /**
      * setter for the chiller
-     * @param state 
+     * @param state on/off
      */
     public void setChiller(boolean state){
         glycolLoop.chiller.setState(state);
@@ -252,7 +252,7 @@ public class ProcessController {
 
     /**
      * setter for the ice tank
-     * @param state 
+     * @param state on/off
      */
     public void setIce(boolean state){
         //glycolLoop.iceTank.setState(state);
@@ -262,7 +262,7 @@ public class ProcessController {
      * setter for the pump
      * despite override setting, will open bypass if all valves are closed
      * to prevent the pump from breaking. there is a hardcoded safety "feature"
-     * @param state 
+     * @param state on/off
      */
     public void setPump(boolean state){
         if(glycolLoop.bypass.getCount() == 4){
@@ -274,9 +274,9 @@ public class ProcessController {
     
     /**
      * chamber 1 vessel 1 setter
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius 
      */
     public void setVessel1Chamber1(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber1.vessel1.setState(activity, recipe);
@@ -285,9 +285,9 @@ public class ProcessController {
     
     /**
      * chamber 1 vessel 2 setter
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius
      */
     public void setVessel2Chamber1(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber1.vessel2.setState(activity, recipe);
@@ -296,9 +296,9 @@ public class ProcessController {
     
     /**
      * chamber 1 vessel 3 setter
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius
      */
     public void setVessel3Chamber1(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber1.vessel3.setState(activity, recipe);
@@ -307,9 +307,9 @@ public class ProcessController {
     
     /**
      * chamber 1 vessel 4 setter
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius
      */
     public void setVessel4Chamber1(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber1.vessel4.setState(activity, recipe);
@@ -318,9 +318,9 @@ public class ProcessController {
     
     /**
      * chamber 2 vessel 1 setter
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius
      */
     public void setVessel1Chamber2(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber2.vessel1.setState(activity, recipe);
@@ -329,9 +329,9 @@ public class ProcessController {
     
     /**
      * chamber 2 vessel 2 setter
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius
      */
     public void setVessel2Chamber2(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber2.vessel2.setState(activity, recipe);
@@ -340,20 +340,20 @@ public class ProcessController {
     
     /**
      * chamber 2 vessel 3 setter
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius
      */
     public void setVessel3Chamber2(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber2.vessel3.setState(activity, recipe);
         glycolLoop.chamber2.vessel3.updateSetPoint(setPoint);
     }
     
-    /**chamber 2 vessel 4 setter
-     * 
-     * @param activity
-     * @param recipe
-     * @param setPoint 
+    /**
+     * chamber 2 vessel 4 setter
+     * @param activity active/inactive
+     * @param recipe name of recipe
+     * @param setPoint temp in Celsius
      */
     public void setVessel4Chamber2(boolean activity, String recipe, int setPoint){
         glycolLoop.chamber2.vessel4.setState(activity, recipe);
@@ -362,7 +362,7 @@ public class ProcessController {
   
     /**
      * chamber 1 vessel 1 recipe getter
-     * @return recipe
+     * @return recipe name of recipe
      */
     public String c1v1Recipe(){
         return glycolLoop.chamber1.vessel1.getRecipe();
@@ -370,7 +370,7 @@ public class ProcessController {
     
     /**
      * chamber 1 vessel 2 recipe getter
-     * @return recipe
+     * @return recipe name of recipe
      */
     public String c1v2Recipe(){
         return glycolLoop.chamber1.vessel2.getRecipe();
@@ -378,7 +378,7 @@ public class ProcessController {
     
     /**
      * chamber 1 vessel 3 recipe getter
-     * @return recipe
+     * @return recipe name of recipe
      */
     public String c1v3Recipe(){
         return glycolLoop.chamber1.vessel3.getRecipe();
@@ -386,7 +386,7 @@ public class ProcessController {
     
     /**
      * chamber 1 vessel 4 recipe getter
-     * @return recipe
+     * @return recipe name of recipe
      */
     public String c1v4Recipe(){
         return glycolLoop.chamber1.vessel4.getRecipe();

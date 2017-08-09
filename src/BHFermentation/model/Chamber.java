@@ -44,21 +44,32 @@ public class Chamber{
     
     /**
      * gets vessels associated with the chamber
-     * @return 
+     * @return the vessel
      */
     public Vessel getVessels(){
         return vessel1;
     }
     
-        
+    /**
+     * setter for the heater
+     * @param state on/off
+     */    
     public void setHeater(boolean state){
         heater.setState(state);
     }
     
+    /**
+     * get the temperature
+     * @return temperature in Celsius
+     */
     public int getTemperature(){
         return temperature;
     }
     
+    /**
+     * fan setter
+     * @param state on/off
+     */
     public void setFan(boolean state){
         fan.setState(state);
     }

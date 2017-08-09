@@ -65,7 +65,7 @@ public class Vessel extends Observable{
     
     /**
      * updates the setpoint
-     * @param setPoint 
+     * @param setPoint in Celsius
      */
     public void updateSetPoint(int setPoint){
         this.setPoint = setPoint;

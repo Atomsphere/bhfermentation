@@ -35,8 +35,8 @@ public class ComponentObserver implements Observer {
     
     /**
      * The update method for this observer
-     * @param o
-     * @param arg 
+     * @param o the object being observed
+     * @param arg generated arguments
      */
     @Override
     public void update(Observable o, Object arg) {
