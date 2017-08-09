@@ -17,7 +17,7 @@ import java.util.Observable;
 public class Valve extends Observable{
     private final GpioPinDigitalOutput open;
     private final GpioPinDigitalOutput close;
-    boolean acs = true;
+    boolean acs = false;
     static int closedCount = 4;
     Valve(Pin open, Pin close){
         this.open = GPIO.provisionDigitalOutputPin(open, "Valve Open", PinState.LOW);
