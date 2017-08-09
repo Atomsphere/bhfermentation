@@ -89,7 +89,7 @@ public class ProcessController {
     /**
      * Allows setpoints to be updated
      * sends update to view
-     * @parm value value to be displayed
+     * @param value value to be displayed
      * @param row row associated with a table
      * @param col column associated a table
      * @param tableID 0 =chamber1, 1 =chamber2, 2 =components, 3 =valves, 4 =sensors
@@ -397,115 +397,197 @@ public class ProcessController {
     @author Lane M
     */
     
+    /**
+     * Freezer state getter
+     * @return current state of freezer
+     */
     public boolean getChestFreezerState()
     {
         return glycolLoop.chestFreezer.getState();
     }
   
+    /**
+     * Bypass state getter
+     * @return current state of bypass
+     */
     public boolean getBypassState()
     {
         return glycolLoop.bypass.getState();
     }
   
+    /**
+     * Chiller state getter
+     * @return current state of chiller
+     */
     public boolean getChillerState()
     {
         return glycolLoop.chiller.getState();
     }
   
+    /**
+     * Chamber 2 vessel 1 recipe getter
+     * @return recipe name of recipe
+     */
     public String c2v1Recipe(){
         return glycolLoop.chamber2.vessel1.getRecipe();
     }
     
+    /**
+     * Chamber 2 vessel 2 recipe getter
+     * @return recipe name of recipe
+     */
     public String c2v2Recipe(){
         return glycolLoop.chamber2.vessel2.getRecipe();
     }
     
+    /**
+     * Chamber 2 vessel 3 recipe getter
+     * @return recipe name of recipe
+     */
     public String c2v3Recipe(){
         return glycolLoop.chamber2.vessel3.getRecipe();
     }
     
+    /**
+     * Chamber 2 vessel 4 recipe getter
+     * @return recipe name of recipe
+     */
     public String c2v4Recipe(){
         return glycolLoop.chamber2.vessel4.getRecipe();
     }
     
-    /*
-    these are just plain ol' getter functions! nothin to see here
-    @author Lane M
-    */
+    /**
+     * Chamber 1 vessel 1 state getter
+     * @return current state of chamber 1 vessel 1
+     */
     public boolean c1v1Activity(){
         return glycolLoop.chamber1.vessel1.getstate();
     }
     
+    /**
+     * Chamber 1 vessel 2 state getter
+     * @return current state of chamber 1 vessel 2
+     */
     public boolean c1v2Activity(){
         return glycolLoop.chamber1.vessel2.getstate();
     }
     
+    /**
+     * Chamber 1 vessel 3 state getter
+     * @return current state of chamber 1 vessel 3
+     */
     public boolean c1v3Activity(){
         return glycolLoop.chamber1.vessel3.getstate();
     }
     
+    /**
+     * Chamber 1 vessel 4 state getter
+     * @return current state of chamber 1 vessel 4
+     */
     public boolean c1v4Activity(){
         return glycolLoop.chamber1.vessel4.getstate();
     }
     
+    /**
+     * Chamber 2 vessel 1 state getter
+     * @return current state of chamber 2 vessel 1
+     */
     public boolean c2v1Activity(){
         return glycolLoop.chamber2.vessel1.getstate();
     }
     
+    /**
+     * Chamber 2 vessel 2 state getter
+     * @return current state of chamber 2 vessel 2
+     */
     public boolean c2v2Activity(){
         return glycolLoop.chamber2.vessel2.getstate();
     }
     
+    /**
+     * Chamber 2 vessel 3 state getter
+     * @return current state of chamber 2 vessel 3
+     */
     public boolean c2v3Activity(){
         return glycolLoop.chamber2.vessel3.getstate();
     }
     
+    /**
+     * Chamber 2 vessel 4 state getter
+     * @return current state of chamber 2 vessel 4
+     */
     public boolean c2v4Activity(){
         return glycolLoop.chamber2.vessel4.getstate();
     }
     
-    /*
-    getters for the set point
-    @author Lane M
-    */
+    /**
+     * Chamber 1 vessel 1 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c1v1SetPoint(){
         return glycolLoop.chamber1.vessel1.getSetPoint();
     }
     
+    /**
+     * Chamber 1 vessel 2 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c1v2SetPoint(){
         return glycolLoop.chamber1.vessel2.getSetPoint();
     }
 
+    /**
+     * Chamber 1 vessel 3 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c1v3SetPoint(){
         return glycolLoop.chamber1.vessel3.getSetPoint();
     }
     
+    /**
+     * Chamber 1 vessel 4 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c1v4SetPoint(){
         return glycolLoop.chamber1.vessel4.getSetPoint();
     }
     
+    /**
+     * Chamber 2 vessel 1 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c2v1SetPoint(){
         return glycolLoop.chamber2.vessel1.getSetPoint();
     }
     
+    /**
+     * Chamber 2 vessel 2 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c2v2SetPoint(){
         return glycolLoop.chamber2.vessel2.getSetPoint();
     }
     
+    /**
+     * Chamber 2 vessel 3 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c2v3SetPoint(){
         return glycolLoop.chamber2.vessel3.getSetPoint();
     }
     
+    /**
+     * Chamber 2 vessel 4 set point getter
+     * @return set point temperature value in Celsius
+     */
     public double c2v4SetPoint(){
         return glycolLoop.chamber2.vessel4.getSetPoint();
     }
-    
-    
-    public double gettemp1(){
-        
-        return glycolLoop.getTemp1();
-    }
-    
+
+    /**
+     * Closed valves
+     * @return number of currently closed valves
+     */
     public int getCC()
     {
         return glycolLoop.bypass.getCount();
