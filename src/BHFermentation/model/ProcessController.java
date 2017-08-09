@@ -10,7 +10,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import static java.util.concurrent.TimeUnit.*;
-import javax.swing.table.*;
 
 /**
  * Provides an interface for the view/controller
@@ -394,7 +393,7 @@ public class ProcessController {
     }
   
     /*
-    added more getter functions ******getters for testing******
+     **************getters for testing***********************
     @author Lane M
     */
     
@@ -469,35 +468,35 @@ public class ProcessController {
     getters for the set point
     @author Lane M
     */
-    public int c1v1SetPoint(){
+    public double c1v1SetPoint(){
         return glycolLoop.chamber1.vessel1.getSetPoint();
     }
     
-    public int c1v2SetPoint(){
+    public double c1v2SetPoint(){
         return glycolLoop.chamber1.vessel2.getSetPoint();
     }
 
-    public int c1v3SetPoint(){
+    public double c1v3SetPoint(){
         return glycolLoop.chamber1.vessel3.getSetPoint();
     }
     
-    public int c1v4SetPoint(){
+    public double c1v4SetPoint(){
         return glycolLoop.chamber1.vessel4.getSetPoint();
     }
     
-    public int c2v1SetPoint(){
+    public double c2v1SetPoint(){
         return glycolLoop.chamber2.vessel1.getSetPoint();
     }
     
-    public int c2v2SetPoint(){
+    public double c2v2SetPoint(){
         return glycolLoop.chamber2.vessel2.getSetPoint();
     }
     
-    public int c2v3SetPoint(){
+    public double c2v3SetPoint(){
         return glycolLoop.chamber2.vessel3.getSetPoint();
     }
     
-    public int c2v4SetPoint(){
+    public double c2v4SetPoint(){
         return glycolLoop.chamber2.vessel4.getSetPoint();
     }
     

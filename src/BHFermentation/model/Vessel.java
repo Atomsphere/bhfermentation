@@ -81,7 +81,11 @@ public class Vessel extends Observable{
         return recipe;
     }
     
-    public int getSetPoint()
+    /**
+     * getter for the set point
+     * @return setpoint as a double
+     */
+    public double getSetPoint()
     {
         return setPoint;
     }
