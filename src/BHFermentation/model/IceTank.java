@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
@@ -10,8 +8,8 @@ import static BHFermentation.model.ProcessController.GPIO;
 import com.pi4j.io.gpio.Pin;
 
 /**
- *
- * @author Mark
+ * The ice maker for the system currently non functional due to lack of GPIO's
+ * @author Mark Maupin
  */
 public class IceTank extends Component{
     //private final Sensor sensor;
