@@ -35,8 +35,8 @@ public class ComponentObserver implements Observer {
     
     /**
      * The update method for this observer
-     * @param o
-     * @param arg 
+     * @param o the object being observed
+     * @param arg generated arguments
      */
     @Override
     public void update(Observable o, Object arg) {
@@ -44,7 +44,12 @@ public class ComponentObserver implements Observer {
         
         if(state ^ component.getState()){
             state = component.getState();
-            JFrameView.processController.updateData(Boolean.toString(state), row, col, tableID);
+            if(state){
+                JFrameView.processController.updateData("on", row, col, tableID);
+            }else{
+                JFrameView.processController.updateData("off", row, col, tableID);
+            }
+            
         }
     }
     

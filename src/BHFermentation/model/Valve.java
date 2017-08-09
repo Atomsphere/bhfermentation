@@ -63,6 +63,11 @@ public class Valve extends Observable{
         
     }
     
+    /**
+     * valveControl- controls the valve
+     * @param state 0 sets ACS on, 1 sets valve on, 2 sets valve off
+     * @return the count of closed valves
+     */
     public int valveControl(int state){
         switch (state){
             case 0: 
@@ -85,7 +90,7 @@ public class Valve extends Observable{
     
     /**
      * setter for the ACS flag
-     * @param state 
+     * @param state on/off
      */
     void ACS(boolean state){
         this.acs = state;

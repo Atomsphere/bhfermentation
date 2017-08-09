@@ -37,28 +37,39 @@ public class Chamber{
         v2 = new VesselObserver(vessel2, ID);
         v3 = new VesselObserver(vessel3, ID);
         v4 = new VesselObserver(vessel4, ID);
-        heaterO = new ComponentObserver(heater, 4, 2, ID);
-        fanO = new ComponentObserver(fan, 5, 2, ID);
+        heaterO = new ComponentObserver(heater, 4, 1, ID);
+        fanO = new ComponentObserver(fan, 5, 1, ID);
         
     }
     
     /**
      * gets vessels associated with the chamber
-     * @return 
+     * @return the vessel
      */
     public Vessel getVessels(){
         return vessel1;
     }
     
-        
+    /**
+     * setter for the heater
+     * @param state on/off
+     */    
     public void setHeater(boolean state){
         heater.setState(state);
     }
     
+    /**
+     * get the temperature
+     * @return temperature in Celsius
+     */
     public int getTemperature(){
         return temperature;
     }
     
+    /**
+     * fan setter
+     * @param state on/off
+     */
     public void setFan(boolean state){
         fan.setState(state);
     }

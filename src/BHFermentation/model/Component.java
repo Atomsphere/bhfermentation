@@ -26,7 +26,7 @@ public abstract class Component extends Observable{
      * sets state of a GPIO output Pin
      * receives boolean, if true energize
      * else de energize
-     * @param state 
+     * @param state on/off
      */
     public void setState(boolean state){
         if(state){

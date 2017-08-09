@@ -35,7 +35,7 @@ public class VesselObserver implements Observer{
     /**
      * update method for the observer
      * @param o the vessel being observed
-     * @param arg 
+     * @param arg generated arguments
      */
     @Override
     public void update(Observable o, Object arg) {

@@ -37,7 +37,6 @@ public class Driver {
         }
         //</editor-fold>
         
-        DatabaseConnection db1=new DatabaseConnection();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {

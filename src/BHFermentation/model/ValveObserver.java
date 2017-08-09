@@ -30,7 +30,7 @@ public class ValveObserver implements Observer{
     /**
      * sends updated data to process controller
      * @param o the object being observed
-     * @param arg 
+     * @param arg generated arguments
      */
     @Override
     public void update(Observable o, Object arg) {
