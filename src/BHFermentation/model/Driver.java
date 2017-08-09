@@ -5,6 +5,7 @@ package BHFermentation.model;
 
 
 import BHFermentation.view.JFrameView;
+import java.sql.SQLException;
 
 /**
  * Driver class containing main, instantiates the view
@@ -12,7 +13,7 @@ import BHFermentation.view.JFrameView;
  */
 public class Driver {
     
-     public static void main(String args[]) {
+     public static void main(String args[]) throws SQLException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -35,6 +36,8 @@ public class Driver {
             java.util.logging.Logger.getLogger(JFrameView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        DatabaseConnection db1=new DatabaseConnection();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
