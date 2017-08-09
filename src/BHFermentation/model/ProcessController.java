@@ -137,12 +137,26 @@ public class ProcessController {
         glycolLoop.bypass.valveControl(state);
     }
     
+    public boolean getBypassState()
+    {
+        return glycolLoop.bypass.getState();
+    }
+    
     public void setChestFreezer(boolean state){
         glycolLoop.chestFreezer.setState(state);
     }
     
+    public boolean getChestFreezerState()
+    {
+        return glycolLoop.chestFreezer.getState();
+    }
     public void setChiller(boolean state){
         glycolLoop.chiller.setState(state);
+    }
+    
+    public boolean getChillerState()
+    {
+        return glycolLoop.chiller.getState();
     }
     
     public void setIce(boolean state){
@@ -195,6 +209,11 @@ public class ProcessController {
         glycolLoop.chamber2.vessel4.setState(activity, recipe);
         glycolLoop.chamber2.vessel4.updateSetPoint(setPoint);
     }
+ 
+    /*
+    added more getter functions
+    @author Lane M
+    */
     
     public String c1v1Recipe(){
         return glycolLoop.chamber1.vessel1.getRecipe();
@@ -211,6 +230,95 @@ public class ProcessController {
     public String c1v4Recipe(){
         return glycolLoop.chamber1.vessel4.getRecipe();
     }
+    
+    public String c2v1Recipe(){
+        return glycolLoop.chamber2.vessel1.getRecipe();
+    }
+    
+    public String c2v2Recipe(){
+        return glycolLoop.chamber2.vessel2.getRecipe();
+    }
+    
+    public String c2v3Recipe(){
+        return glycolLoop.chamber2.vessel3.getRecipe();
+    }
+    
+    public String c2v4Recipe(){
+        return glycolLoop.chamber2.vessel4.getRecipe();
+    }
+    
+    /*
+    these are just plain ol' getter functions! nothin to see here
+    @author Lane M
+    */
+    public boolean c1v1Activity(){
+        return glycolLoop.chamber1.vessel1.getstate();
+    }
+    
+    public boolean c1v2Activity(){
+        return glycolLoop.chamber1.vessel2.getstate();
+    }
+    
+    public boolean c1v3Activity(){
+        return glycolLoop.chamber1.vessel3.getstate();
+    }
+    
+    public boolean c1v4Activity(){
+        return glycolLoop.chamber1.vessel4.getstate();
+    }
+    
+    public boolean c2v1Activity(){
+        return glycolLoop.chamber2.vessel1.getstate();
+    }
+    
+    public boolean c2v2Activity(){
+        return glycolLoop.chamber2.vessel2.getstate();
+    }
+    
+    public boolean c2v3Activity(){
+        return glycolLoop.chamber2.vessel3.getstate();
+    }
+    
+    public boolean c2v4Activity(){
+        return glycolLoop.chamber2.vessel4.getstate();
+    }
+    
+    /*
+    getters for the set point
+    @author Lane M
+    */
+    public int c1v1SetPoint(){
+        return glycolLoop.chamber1.vessel1.getSetPoint();
+    }
+    
+    public int c1v2SetPoint(){
+        return glycolLoop.chamber1.vessel2.getSetPoint();
+    }
+
+    public int c1v3SetPoint(){
+        return glycolLoop.chamber1.vessel3.getSetPoint();
+    }
+    
+    public int c1v4SetPoint(){
+        return glycolLoop.chamber1.vessel4.getSetPoint();
+    }
+    
+    public int c2v1SetPoint(){
+        return glycolLoop.chamber2.vessel1.getSetPoint();
+    }
+    
+    public int c2v2SetPoint(){
+        return glycolLoop.chamber2.vessel2.getSetPoint();
+    }
+    
+    public int c2v3SetPoint(){
+        return glycolLoop.chamber2.vessel3.getSetPoint();
+    }
+    
+    public int c2v4SetPoint(){
+        return glycolLoop.chamber2.vessel4.getSetPoint();
+    }
+    
     
     public double gettemp1(){
         
