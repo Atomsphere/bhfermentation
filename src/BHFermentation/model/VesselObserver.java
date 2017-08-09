@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
@@ -10,7 +8,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- *
+ * Observer class for the vessels
  * @author Mark Maupin
  */
 public class VesselObserver implements Observer{
@@ -20,6 +18,11 @@ public class VesselObserver implements Observer{
     private int ID;
     int chamberID;
     
+    /**
+     * constructor for the observer class
+     * @param vessel concrete vessel object
+     * @param chamberID which chamber the vessel belongs to
+     */
     public VesselObserver(Vessel vessel, int chamberID){
         vessel.addObserver(this);
         recipe = vessel.getRecipe();
@@ -29,6 +32,11 @@ public class VesselObserver implements Observer{
         this.chamberID = chamberID;
     }
 
+    /**
+     * update method for the observer
+     * @param o the vessel being observed
+     * @param arg 
+     */
     @Override
     public void update(Observable o, Object arg) {
         Vessel vessel = (Vessel)o;

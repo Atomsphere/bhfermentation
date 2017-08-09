@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.view;
 
@@ -10,7 +8,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 /**
- *
+ * Primary view
  * @author Mitchell
  * @author Mark Maupin
  */
@@ -913,6 +911,9 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         processController.setChestFreezer(false);
     }//GEN-LAST:event_ORFreezerOffActionPerformed
     
+    /**
+     * chamber1 table listener. calls repaint
+     */
     private static class Chamber1Listener implements ListSelectionListener {
 
         @Override
@@ -921,6 +922,9 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         }
     }
     
+    /**
+     * chamber2 table listener. calls repaint
+     */
     private static class Chamber2Listener implements ListSelectionListener {
 
         @Override
@@ -929,6 +933,9 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         }
     }
     
+    /**
+     * component table listener. calls repaint
+     */
     private static class ComponentsListener implements ListSelectionListener {
 
         @Override
@@ -937,6 +944,9 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         }
     }
     
+    /**
+     * valve table listener. calls repaint
+     */
     private static class ValveListener implements ListSelectionListener {
 
         @Override
@@ -945,6 +955,9 @@ chamber1Table.addPropertyChangeListener(new java.beans.PropertyChangeListener() 
         }
     }
     
+    /**
+     * sensor table listener. calls repaint
+     */
     private static class SensorListener implements ListSelectionListener {
 
         @Override

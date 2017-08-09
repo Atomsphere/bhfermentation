@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
@@ -85,18 +83,34 @@ public class Valve extends Observable{
         }
     }
     
+    /**
+     * setter for the ACS flag
+     * @param state 
+     */
     void ACS(boolean state){
         this.acs = state;
     }
     
+    /**
+     * getter for the state of valve
+     * @return true if close is energized
+     */
     public boolean getState(){
         return close.isHigh();
     }
     
+    /**
+     * getter for closed count
+     * @return number of closed valves in the system
+     */
     public int getCount(){
         return closedCount;
     }
     
+    /**
+     * getter for acs
+     * @return true if ACS is active for a valve
+     */
     public boolean getACS(){
         return acs;
     }

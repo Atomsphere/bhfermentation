@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
@@ -9,7 +7,7 @@ package BHFermentation.model;
 import BHFermentation.view.JFrameView;
 
 /**
- *
+ * Driver class containing main, instantiates the view
  * @author Mark Maupin
  */
 public class Driver {

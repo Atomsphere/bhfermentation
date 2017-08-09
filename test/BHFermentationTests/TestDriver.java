@@ -8,7 +8,6 @@ package BHFermentationTests;
 
 import BHFermentation.model.ProcessController;
 import junit.framework.TestCase;
-import org.junit.Before;
 
 
 

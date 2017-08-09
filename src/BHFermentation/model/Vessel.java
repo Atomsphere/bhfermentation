@@ -1,14 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
 import java.util.Observable;
 
 /**
- *
+ * represents vessels
  * @author Mark Maupin
  */
 public class Vessel extends Observable{
@@ -19,23 +17,45 @@ public class Vessel extends Observable{
     int ID;
     int chamberID;
     
+    /**
+     * constructor for the vessel
+     * @param ID which vessel the concrete representation is
+     */
     public Vessel(int ID){
         this.recipe = "-";
         this.setPoint = 68;
         this.ID = ID;
     }
+    
+    /**
+     * getter for the state of the valve
+     * @return true if active
+     */
     public boolean getstate(){
         return this.state;
     }
     
+    /**
+     * getter for the setpoint
+     * @return setpoint as a double
+     */
     public double getSetpoint(){
         return setPoint;
     }
     
+    /**
+     * getter for the id value
+     * @return ID as an int
+     */
     public int getID(){
         return ID;
     }
     
+    /**
+     * setter for the state
+     * @param state active/inactive
+     * @param recipe name of the recipe
+     */
     public void setState(boolean state, String recipe){
         this.state = state;
         this.recipe = recipe;
@@ -43,12 +63,20 @@ public class Vessel extends Observable{
         notifyObservers();
     }
     
+    /**
+     * updates the setpoint
+     * @param setPoint 
+     */
     public void updateSetPoint(int setPoint){
         this.setPoint = setPoint;
         setChanged();
         notifyObservers();
     }
     
+    /**
+     * getter for the recipe
+     * @return recipe as a string
+     */
     public String getRecipe(){
         return recipe;
     }

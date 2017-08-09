@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  CS4398 - Group 3 - Summer 2 - 2017
  */
 package BHFermentation.model;
 
@@ -10,7 +8,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- *
+ * observer class for observing component objects
  * @author Mark Maupin
  */
 public class ComponentObserver implements Observer {
@@ -20,6 +18,13 @@ public class ComponentObserver implements Observer {
     int row;
     int col;
     
+    /**
+     * Constructor for the component observer
+     * @param component concrete object being observed
+     * @param row represents which row it is displayed in a table
+     * @param col represents which column it is displayed in a table
+     * @param tableID represents which table it is associated with
+     */
     public ComponentObserver(Component component, int row, int col, int tableID){
         component.addObserver(this);
         this.state = component.getState();
@@ -27,6 +32,12 @@ public class ComponentObserver implements Observer {
         this.row = row;
         this.col = col;
     }
+    
+    /**
+     * The update method for this observer
+     * @param o
+     * @param arg 
+     */
     @Override
     public void update(Observable o, Object arg) {
         Component component = (Component)o;
